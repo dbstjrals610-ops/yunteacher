@@ -2,1319 +2,1116 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>과학자의 신념을 지켜라</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>과학과 함께 하는 르네상스 예술 여행 — 팸플릿 만들기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#07101d;--panel:#0f1a2d;--panel2:#152640;--line:#2a3c5c;
-  --text:#eef6ff;--muted:#9caec8;--accent:#6ba8ff;--good:#5fdda0;
-  --bad:#ff7184;--gold:#ffd66e;--violet:#aa8cff;--cyan:#60dff5
-}
-*{box-sizing:border-box}
-body{
-  margin:0;min-height:100vh;color:var(--text);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;
-  background:
-    radial-gradient(circle at 50% -10%,#274671 0,rgba(16,35,62,.75) 24%,transparent 55%),
-    linear-gradient(180deg,#08111f,#060d16 80%);
-}
-button{font:inherit;cursor:pointer}
-.wrap{max-width:1230px;margin:auto;padding:14px}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.brand{font-weight:900;letter-spacing:.3px}
-.sound{border:1px solid var(--line);background:#0e192a;color:#e1ecfb;border-radius:12px;padding:8px 11px}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start}
-.main,.side{
-  background:rgba(15,26,45,.96);border:1px solid var(--line);border-radius:24px;
-  box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden
-}
-.side{position:sticky;top:12px}
-.hero{padding:56px 34px 48px;text-align:center}
-.eyebrow{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:2.2px}
-.hero h1{font-size:clamp(36px,5.8vw,66px);line-height:1.02;margin:13px 0 17px}
-.hero p{max-width:720px;margin:0 auto 24px;color:var(--muted);line-height:1.8}
-.pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:18px 0 28px}
-.pill{padding:8px 11px;border:1px solid var(--line);background:#0c1728;border-radius:999px;color:#cad9ed;font-size:12px}
-.btn{
-  border:0;border-radius:14px;padding:13px 20px;background:var(--accent);color:#06111f;
-  font-weight:900;transition:.15s
-}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-.btn.ghost{background:#152640;color:var(--text);border:1px solid var(--line)}
-.content{padding:26px}
-.stageLine{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px}
-.stageLine b{color:#edf5ff}
-.title{font-size:34px;line-height:1.22;margin:9px 0 4px}
-.subtitle{font-weight:900;color:var(--accent)}
-.story{font-size:18px;line-height:1.85;color:#dce8f7;margin:18px 0}
-.quote{
-  border-left:3px solid var(--gold);background:#0c1728;padding:13px 16px;
-  border-radius:0 13px 13px 0;color:#e8f1fd;line-height:1.7;margin:18px 0
-}
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:19px}
-.choice{
-  background:#13233b;color:var(--text);border:1px solid var(--line);text-align:left;
-  border-radius:16px;padding:16px;min-height:92px;transition:.15s
-}
-.choice:hover{background:#182d4c;border-color:#6ea9ff;transform:translateY(-2px)}
-.choice small{display:block;margin-top:6px;color:#9fb0c9}
-.quizhead{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
-.progress{height:8px;background:#09121f;border-radius:999px;overflow:hidden;margin:11px 0 20px}
-.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--violet));transition:.35s}
-.question{font-size:23px;line-height:1.5;margin:14px 0 18px}
-.answers{display:grid;gap:10px}
-.answer{
-  position:relative;background:#13233b;color:var(--text);border:1px solid var(--line);
-  border-radius:15px;padding:15px;text-align:left;min-height:67px
-}
-.answer:hover{background:#192e4d;border-color:#6da9ff}
-.answer.correct{background:#103228;border-color:var(--good)}
-.answer.wrong{background:#3a1821;border-color:var(--bad)}
-.tag{font-size:11px;background:#091523;color:#b7cde8;border-radius:99px;padding:3px 7px;margin-left:7px}
-.feedback{min-height:42px;color:#d0dced;line-height:1.7;margin-top:13px}
-.miniTop{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
-.badge{padding:6px 9px;background:#0d1828;border:1px solid var(--line);border-radius:9px}
-.miniIntro{color:var(--muted);line-height:1.7}
-.gamebox{
-  position:relative;margin-top:18px;min-height:270px;background:#07111e;border:1px solid var(--line);
-  border-radius:19px;overflow:hidden
-}
-.controls{display:flex;justify-content:center;padding:12px;background:#0a1423}
-.controls .btn{width:100%;max-width:340px}
-.flashMsg{
-  position:fixed;left:50%;top:17%;transform:translate(-50%,-10px);
-  padding:15px 20px;border-radius:15px;border:1px solid var(--line);background:#10213a;
-  color:#eef7ff;z-index:100;opacity:0;pointer-events:none;transition:.18s;text-align:center;
-  box-shadow:0 15px 45px rgba(0,0,0,.45);font-weight:900
-}
-.flashMsg.show{opacity:1;transform:translate(-50%,0)}
-.feedbackBox{
-  position:absolute;top:12px;left:50%;transform:translateX(-50%);
-  min-width:190px;padding:10px 13px;border-radius:12px;text-align:center;
-  font-weight:900;z-index:10;opacity:0;transition:.15s
-}
-.feedbackBox.show{opacity:1}.feedbackBox.good{background:#12382b;border:1px solid var(--good);color:#8ff0bd}
-.feedbackBox.bad{background:#3b1922;border:1px solid var(--bad);color:#ff9dad}
-.sideInner{padding:16px}
-.avatarCard{
-  position:relative;overflow:hidden;background:linear-gradient(180deg,#182c4b,#0f1a2d);
-  border:1px solid var(--line);border-radius:19px;padding:15px;text-align:center
-}
-.avatarGlow{position:absolute;inset:-40px;background:radial-gradient(circle,#6ba8ff19,transparent 58%);pointer-events:none}
-.avatarVisual{position:relative;min-height:105px;display:flex;align-items:center;justify-content:center;gap:8px}
-.charBody{font-size:66px;line-height:1;filter:drop-shadow(0 5px 8px rgba(0,0,0,.25))}
-.charGear{font-size:27px}
-.levelText{font-size:13px;color:var(--gold);font-weight:900}
-.xpbar{height:8px;background:#09121f;border-radius:999px;overflow:hidden;margin-top:8px}
-.xpbar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--violet));transition:.4s}
-.evoText{font-size:12px;color:#b3c6df;margin-top:7px;min-height:18px}
-.skillTitle{display:flex;justify-content:space-between;align-items:center;margin:16px 0 9px}
-.skillTitle b{font-size:13px}.overall{font-size:11px;color:var(--gold);font-weight:900}
-.skill{margin:10px 0}
-.skillname{display:flex;justify-content:space-between;color:#cfdbed;font-size:12px}
-.skillbar{height:7px;background:#09121f;border-radius:99px;overflow:hidden;margin-top:5px}
-.skillbar i{display:block;height:100%;transition:.35s}
-.skillxp{font-size:10px;color:#70839d;margin-top:2px}
-.hint{margin-top:13px;background:#0c1727;border:1px solid var(--line);border-radius:13px;padding:10px;color:#8ea4bf;font-size:11px;line-height:1.6}
-.result{text-align:center;padding:45px 28px 50px}
-.result .bigLevel{font-size:60px;color:var(--gold);font-weight:950}
-.result .type{font-size:29px;font-weight:950;margin:6px 0 12px}
-.result p{max-width:740px;margin:0 auto;color:#cfdbed;line-height:1.8}
-.resultGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:720px;margin:24px auto;text-align:left}
-.resultCard{background:#0e1a2c;border:1px solid var(--line);border-radius:15px;padding:14px}
-.resultCard small{color:var(--muted)}.resultCard b{display:block;font-size:20px;margin-top:4px}
-.fireworks{position:relative;height:170px;overflow:hidden;margin-bottom:-10px}
-.particle{position:absolute;width:8px;height:8px;border-radius:50%;animation:fall 1.8s ease-out forwards;opacity:0}
-@keyframes fall{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.4)}}
-.levelup{animation:levelup .65s ease}
-@keyframes levelup{0%{transform:scale(1)}45%{transform:scale(1.09)}100%{transform:scale(1)}}
-.footer{padding:12px;text-align:center;color:#60738d;font-size:11px}
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --ink:#2A2118; --ink-soft:#5B4E3D; --ink-faint:#8A7B63;
+    --parchment:#EFE7CE; --parchment-deep:#E1D2A4; --paper:#F8F3E3;
+    --lapis:#1F4E79; --lapis-deep:#123449;
+    --verdigris:#2F5C50; --terra:#8C3A2B; --gold:#AD7F26; --gold-soft:#DCC077;
+    --line: rgba(42,33,24,.20);
+    --shadow: rgba(30,22,12,.28);
+    --surface:var(--paper);
+    --surface-raised:#fff;
+    --text:var(--ink);
+    --text-soft:var(--ink-soft);
+    --bg:var(--parchment);
+    --accent:var(--lapis);
+    --accent-ink:#fff;
+    --danger:#9C3B2E;
+    --ok:#356B4E;
+    --font-display:'Gowun Batang','Noto Serif KR',serif;
+    --font-body:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+    --radius:14px;
+    --mm: 3.7795275591px;
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --surface:#221C14; --surface-raised:#2B2318; --text:#EFE6D2; --text-soft:#C7BA9E;
+      --bg:#1B160F; --line: rgba(239,230,210,.16); --shadow: rgba(0,0,0,.55);
+      --accent:#D8C27A; --accent-ink:#221C14;
+    }
+  }
+  :root[data-theme="dark"]{
+    --surface:#221C14; --surface-raised:#2B2318; --text:#EFE6D2; --text-soft:#C7BA9E;
+    --bg:#1B160F; --line: rgba(239,230,210,.16); --shadow: rgba(0,0,0,.55);
+    --accent:#D8C27A; --accent-ink:#221C14;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--font-body); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  h1,h2,h3{font-family:var(--font-display); margin:0; color:var(--text); font-weight:700;}
+  p{margin:0;}
+  button{font-family:inherit; cursor:pointer;}
+  input,textarea,select{font-family:inherit; color:var(--text); background:var(--surface-raised);}
+  ::selection{background:var(--gold-soft); color:var(--ink);}
+  .hidden{display:none !important;}
+  a{color:inherit;}
 
-/* telescope mini game */
-.telescope{background:linear-gradient(180deg,#081422,#040b13)}
-.stars{position:absolute;inset:0;background-image:
-  radial-gradient(circle at 12% 21%,#fff 0 1px,transparent 2px),
-  radial-gradient(circle at 33% 75%,#e0ebff 0 1px,transparent 2px),
-  radial-gradient(circle at 74% 27%,#fff 0 1px,transparent 2px),
-  radial-gradient(circle at 90% 62%,#fff 0 1px,transparent 2px),
-  radial-gradient(circle at 58% 52%,#dce6ff 0 1px,transparent 2px)}
-.reticle{position:absolute;left:50%;top:53%;width:82px;height:82px;transform:translate(-50%,-50%);border:2px solid #6faeffb7;border-radius:50%}
-.reticle:before,.reticle:after{content:"";position:absolute;background:#6faeff94}
-.reticle:before{width:100%;height:1px;top:50%}.reticle:after{height:100%;width:1px;left:50%}
-.planet{position:absolute;left:10%;top:53%;width:28px;height:28px;transform:translate(-50%,-50%);border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#fff4ad,#ffae43 45%,#cb5d23 100%);box-shadow:0 0 20px #ffb3479a}
+  /* ---------- layout shell ---------- */
+  #topbar{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:calc(10px + env(safe-area-inset-top,0px)) 18px 10px;
+    background:var(--surface); border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:baseline; gap:8px; min-width:0;}
+  .brand .mark{font-size:20px;}
+  .brand .name{font-family:var(--font-display); font-weight:700; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .brand .name small{font-family:var(--font-body); font-weight:500; font-size:11.5px; color:var(--text-soft); display:block; margin-top:1px;}
+  .topbar-right{display:flex; align-items:center; gap:10px;}
+  .sync-pill{
+    display:flex; align-items:center; gap:6px; font-size:12px; color:var(--text-soft);
+    border:1px solid var(--line); padding:5px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .dot{width:7px; height:7px; border-radius:50%; background:#9a9a9a; flex:none;}
+  .dot.live{background:#3E9163; box-shadow:0 0 0 3px rgba(62,145,99,.18);}
+  .dot.off{background:#B0894A;}
+  .dot.busy{background:var(--gold); animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .linklike{
+    background:none; border:none; color:var(--accent); font-size:13px; font-weight:600;
+    text-decoration:underline; text-underline-offset:3px; padding:4px 2px;
+  }
 
-/* epicycle */
-.epicycle{background:radial-gradient(circle at 50% 50%,#182a47 0 48px,#07111e 49px)}
-.orbit{position:absolute;left:50%;top:50%;width:184px;height:184px;border:1px solid #3a5479;border-radius:50%;transform:translate(-50%,-50%)}
-.epicircle{position:absolute;left:50%;top:50%;width:70px;height:70px;border:1px dashed #7a9bc3;border-radius:50%;transform:translate(-50%,-50%)}
-.epid{position:absolute;width:16px;height:16px;border-radius:50%;background:#ffd36f;box-shadow:0 0 15px #ffd36fa3}
-.targetArc{position:absolute;left:50%;top:50%;width:120px;height:120px;border:9px solid transparent;border-top-color:#69a8ff9b;border-radius:50%;transform:translate(-50%,-50%)}
+  main{max-width:1180px; margin:0 auto; padding:22px 18px 64px;}
 
-/* memory */
-.memoryScene{background:#07111f;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;padding:28px}
-.memCard{width:136px;height:132px;background:linear-gradient(180deg,#182941,#0f1d31);border:1px solid #37506f;border-radius:17px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 10px 20px rgba(0,0,0,.18)}
-.memIcon{font-size:51px}.memName{font-size:15px;font-weight:900}.countdown{
-  position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:31px;font-weight:950;
-  color:#ffd76e;background:#091422cc;border:1px solid #324966;border-radius:13px;padding:3px 12px;z-index:5
-}
-.selectArea{padding:18px;background:#081321;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.memChoice{
-  min-height:96px;background:#112038;border:1px solid #2d4563;border-radius:14px;color:#eef6ff;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:800
-}
-.memChoice:hover{border-color:#70a8ff;background:#172b49}
-.memChoice.correctPick{background:#10362a;border-color:var(--good)}
-.memChoice.wrongPick{background:#3b1822;border-color:var(--bad)}
-.memChoice:disabled{cursor:default}
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    border-radius:10px; padding:11px 18px; font-size:14.5px; font-weight:600;
+    border:1.5px solid var(--line); background:var(--surface-raised); color:var(--text);
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+  }
+  .btn:hover{box-shadow:0 3px 10px var(--shadow); transform:translateY(-1px);}
+  .btn:active{transform:translateY(0); box-shadow:none;}
+  .btn:disabled{opacity:.5; cursor:not-allowed; transform:none; box-shadow:none;}
+  .btn-primary{background:var(--lapis); border-color:var(--lapis); color:#fff;}
+  .btn-primary:hover{background:var(--lapis-deep);}
+  .btn-gold{background:var(--gold); border-color:var(--gold); color:#2A2118;}
+  .btn-ghost{background:transparent;}
+  .btn-danger{color:var(--danger); border-color:rgba(156,59,46,.4);}
+  .btn-sm{padding:7px 12px; font-size:13px; border-radius:8px;}
+  .btn-block{width:100%;}
 
-/* ellipse */
-.ellipseArea{background:#07111e;position:relative}
-.ellipsePath{position:absolute;left:50%;top:50%;width:250px;height:150px;border:2px solid #5c84b5;border-radius:50%;transform:translate(-50%,-50%)}
-.dataPoint{position:absolute;width:12px;height:12px;background:#ff7184;border-radius:50%;box-shadow:0 0 13px #ff718477}
-.cursorPoint{position:absolute;display:none;width:19px;height:19px;background:#68a7ff;border-radius:50%;box-shadow:0 0 16px #68a7ff99;transform:translate(-50%,-50%)}
+  /* ---------- landing ---------- */
+  .landing{
+    min-height:calc(100vh - 130px); display:flex; flex-direction:column; align-items:center;
+    justify-content:center; text-align:center; padding:40px 16px; gap:26px;
+  }
+  .landing .emblem{
+    width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--lapis); color:#fff; font-size:30px; box-shadow:0 8px 24px var(--shadow);
+  }
+  .landing h1{font-size:clamp(28px,5vw,44px); line-height:1.22; max-width:14ch;}
+  .landing .eyebrow{font-size:13.5px; color:var(--text-soft); letter-spacing:.02em;}
+  .landing p.lede{max-width:44ch; color:var(--text-soft); font-size:15.5px;}
+  .role-row{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:6px;}
+  .role-card{
+    width:230px; text-align:left; border:1.5px solid var(--line); border-radius:var(--radius);
+    background:var(--surface-raised); padding:20px; display:flex; flex-direction:column; gap:10px;
+    box-shadow:0 2px 0 var(--line);
+  }
+  .role-card .ic{font-size:26px;}
+  .role-card h3{font-size:17px;}
+  .role-card p{font-size:13px; color:var(--text-soft); flex:1;}
+  .source-note{font-size:12px; color:var(--text-soft); max-width:38ch; margin-top:4px;}
 
-/* newton */
-.newtonArea{background:linear-gradient(180deg,#07111e,#0b1728)}
-.ground{position:absolute;left:0;right:0;bottom:35px;height:2px;background:#4d6480}
-.target{position:absolute;bottom:37px;width:36px;height:36px;border:2px dashed #ffd66e;border-radius:50%;transform:translateX(-50%)}
-.ball{position:absolute;left:8%;bottom:42px;width:18px;height:18px;border-radius:50%;background:#69a8ff;box-shadow:0 0 16px #69a8ffaa;transform:translateX(-50%)}
-.range{padding:14px;background:#081321;color:#cbd8ea}
-.range input{width:100%}
+  /* ---------- wizard shell ---------- */
+  .wizard-head{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px;}
+  .steps{display:flex; gap:4px; flex-wrap:wrap;}
+  .step-chip{
+    display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--text-soft);
+    padding:6px 10px; border-radius:999px; border:1px solid transparent;
+  }
+  .step-chip .num{font-family:var(--font-display); font-weight:700; font-size:13px;}
+  .step-chip.active{border-color:var(--accent); color:var(--text); background:var(--surface-raised); font-weight:600;}
+  .step-chip.done{color:var(--ok);}
 
+  .wizard-grid{display:grid; grid-template-columns:1fr; gap:22px;}
+  @media(min-width:920px){ .wizard-grid{grid-template-columns: 1fr 1fr;} }
 
-/* V4 mini-games */
-.retrogradeArea{background:linear-gradient(180deg,#071422,#081c2f);overflow:hidden}
-.miniCaption{position:absolute;top:17px;left:50%;transform:translateX(-50%);color:#c8d7eb;font-size:14px;z-index:3}
-.retroTrack{position:absolute;left:8%;right:8%;top:53%;height:4px;background:#49627e;border-radius:99px}
-.retroTrack:before,.retroTrack:after{content:"";position:absolute;top:-4px;width:12px;height:12px;border-radius:50%;background:#6da8ff}
-.retroTrack:before{left:0}.retroTrack:after{right:0}
-.retroPlanet{position:absolute;top:50%;left:12%;width:26px;height:26px;border-radius:50%;transform:translate(-50%,-50%);
- background:radial-gradient(circle at 35% 30%,#fff1ad,#ffad43 45%,#cc5c22 100%);box-shadow:0 0 20px #ffb34799}
-.retroDirection{position:absolute;left:50%;top:64%;transform:translateX(-50%);font-size:26px;color:#ffd66e;font-weight:900}
-.copernicusArea{background:radial-gradient(circle at 50% 50%,#122849 0 35px,#07111e 36px);min-height:270px;padding:22px}
-.copTitle{text-align:center;color:#d7e5f7;font-weight:900}
-.copPlanets{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:45px}
-.copPlanet{width:105px;min-height:112px;border:1px solid #334a69;background:#10203a;color:#eaf3ff;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
-.copPlanet span{font-size:38px}.copPlanet:hover{border-color:#6ca9ff;background:#172d4b}
-.copPlanet.selected{background:#11382b;border-color:#62dda0;opacity:.65}
-.copProgress{text-align:center;color:#9fb2ce;margin-top:17px}
-.memoryInstruction{grid-column:1/-1;text-align:center;color:#cbd9ea;margin-bottom:3px;font-size:13px}
-.selectArea{width:100%}
-.prismArea{background:linear-gradient(180deg,#091625,#07101a);min-height:270px}
-.prismCaption{position:absolute;left:50%;top:17px;transform:translateX(-50%);color:#cddced;font-weight:800}
-.whiteBeam{position:absolute;left:4%;top:50%;width:37%;height:8px;transform:translateY(-50%);background:white;box-shadow:0 0 14px #ffffff99;border-radius:99px}
-.prismTriangle{position:absolute;left:45%;top:50%;width:0;height:0;transform:translate(-50%,-50%);
- border-left:48px solid transparent;border-right:48px solid transparent;border-bottom:86px solid #bce6ff66;filter:drop-shadow(0 0 10px #8fd8ff55)}
-.spectrumTarget,.spectrumOut{position:absolute;right:6%;width:31%;height:18px;transform:translateY(-50%);
- background:linear-gradient(90deg,#f33,#ff8c00,#ffe600,#32d35d,#2f8cff,#5b3cff,#b94cff);border-radius:99px;box-shadow:0 0 13px #8fcaff44}
-.spectrumTarget{border:2px dashed #fff;background:transparent;height:28px;opacity:.8}
-.spectrumOut{transition:top .1s}
-.prismRange{padding:13px 16px;background:#081321;color:#cbd8ea}.prismRange input{width:90%;display:block;margin:8px auto 0}
+  .panel-card{
+    background:var(--surface-raised); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; box-shadow:0 2px 0 var(--line);
+  }
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--text-soft);}
+  .field .hint{font-size:11.5px; color:var(--text-soft); margin-top:5px; font-weight:400;}
+  .field input[type=text], .field textarea, .field select{
+    width:100%; border:1.5px solid var(--line); border-radius:9px; padding:10px 12px; font-size:14.5px;
+    background:var(--surface); outline:none;
+  }
+  .field input[type=text]:focus, .field textarea:focus, .field select:focus{border-color:var(--accent);}
+  .field textarea{resize:vertical; min-height:78px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media(max-width:520px){ .row2{grid-template-columns:1fr;} }
 
+  .theme-picker{display:flex; gap:10px; flex-wrap:wrap;}
+  .theme-swatch{
+    width:64px; border:2px solid transparent; border-radius:10px; padding:6px; text-align:center;
+    background:var(--surface); cursor:pointer; font-size:11px; color:var(--text-soft);
+  }
+  .theme-swatch .chip{height:30px; border-radius:6px; margin-bottom:6px;}
+  .theme-swatch.selected{border-color:var(--accent); color:var(--text); font-weight:700;}
 
-/* V5 timer + redesigned mini-games */
-.questionTimer{
-  margin:7px 0 15px;
-}
-.questionTimerHead{
-  display:flex;justify-content:space-between;align-items:center;
-  color:#a9bad2;font-size:11px;margin-bottom:5px
-}
-.timerTrack{
-  height:9px;border-radius:999px;background:#09121e;border:1px solid #1d2d45;
-  overflow:hidden;box-shadow:inset 0 0 7px rgba(0,0,0,.3)
-}
-.timerTrack i{
-  display:block;height:100%;width:100%;
-  background:linear-gradient(90deg,#65dba0,#ffd56b,#ff7184);
-  transition:width .05s linear
-}
-.timerDanger{color:#ff8b9a!important;font-weight:900}
+  .work-card{border:1.5px dashed var(--line); border-radius:12px; padding:16px; margin-bottom:14px; position:relative;}
+  .work-card .work-num{position:absolute; top:-11px; left:14px; background:var(--surface-raised); padding:0 8px; font-family:var(--font-display); font-weight:700; font-size:13px; color:var(--accent);}
+  .work-remove{position:absolute; top:8px; right:8px;}
+  .principle-tags{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;}
+  .tag-btn{
+    font-size:11.5px; padding:5px 10px; border-radius:999px; border:1px solid var(--line);
+    background:var(--surface); color:var(--text-soft);
+  }
+  .tag-btn:hover{border-color:var(--accent); color:var(--text);}
 
-/* solar system drag */
-.solarSpace{
-  min-height:315px;position:relative;background:
-    radial-gradient(circle at 50% 35%,#172b4b 0 44px,transparent 45px),
-    radial-gradient(circle at 16% 20%,#fff 0 1px,transparent 2px),
-    radial-gradient(circle at 75% 22%,#dce8ff 0 1px,transparent 2px),
-    radial-gradient(circle at 90% 72%,#fff 0 1px,transparent 2px),
-    radial-gradient(circle at 28% 75%,#dce8ff 0 1px,transparent 2px),
-    linear-gradient(180deg,#06111f,#071526);
-  overflow:hidden
-}
-.sunCore{
-  position:absolute;left:5%;top:50%;width:58px;height:58px;transform:translate(-50%,-50%);
-  border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff6a6,#ffb83e 48%,#db5b24);
-  box-shadow:0 0 34px #ffb43b88
-}
-.solarHint{position:absolute;top:12px;left:50%;transform:translateX(-50%);color:#c8d9ed;font-size:12px;font-weight:800;z-index:3}
-.dragPlanet{
-  position:absolute;width:58px;height:58px;border-radius:50%;border:1px solid #6b86a7;
-  display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:900;
-  cursor:grab;user-select:none;touch-action:none;background:#14243a;box-shadow:0 8px 17px #0006
-}
-.dragPlanet:active{cursor:grabbing;transform:scale(1.08);z-index:15}
-.dragPlanet.locked{cursor:default;box-shadow:0 0 0 3px #62dca1aa,0 0 24px #62dca155}
-.planetMercury{background:#7d8792}.planetVenus{background:#d69b46}.planetEarth{background:#2678b8}
-.planetMars{background:#b7503d}.planetJupiter{background:#a87852}.planetSaturn{background:#d8bd7a}
-.planetUranus{background:#65c9d4;color:#06303a}.planetNeptune{background:#416fd7}
-.solarLine{
-  position:absolute;left:4%;right:4%;bottom:54px;height:62px;border-top:2px solid #55708f;
-  display:flex;justify-content:space-between;align-items:flex-start;z-index:4
-}
-.solarSlot{
-  position:relative;width:10.7%;height:58px;border:1px dashed #4a6380;border-top:0;
-  display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;color:#8fa5c0;font-size:10px
-}
-.solarSlot::before{content:"";position:absolute;top:-7px;width:12px;height:12px;border-radius:50%;background:#1b2e48;border:1px solid #6581a0}
-.solarSlot.over{background:#123327;border-color:#63dca0}
-.solarSlot.done{color:#8ff0bd}
-.solarSlot span{font-weight:900}
-.solarDragResult{position:absolute;top:41px;left:50%;transform:translateX(-50%);z-index:5;font-weight:900}
+  .wizard-actions{display:flex; justify-content:space-between; gap:10px; margin-top:20px;}
 
-/* Kepler */
-.keplerArea{
-  min-height:315px;position:relative;background:radial-gradient(circle at 23% 50%,#172b47 0 26px,transparent 27px),#07111e;
-  overflow:hidden
-}
-.keplerOrbit{
-  position:absolute;left:52%;top:50%;width:390px;height:200px;transform:translate(-50%,-50%);
-  border:2px solid #6487b3;border-radius:50%
-}
-.keplerSun{
-  position:absolute;left:calc(52% - 195px);top:50%;width:30px;height:30px;transform:translate(-50%,-50%);
-  border-radius:50%;background:#ffba3b;box-shadow:0 0 18px #ffb43b99
-}
-.keplerPlanet{
-  position:absolute;width:24px;height:24px;border-radius:50%;transform:translate(-50%,-50%);
-  background:#6ba8ff;box-shadow:0 0 17px #6ba8ffaa
-}
-.keplerTarget{
-  position:absolute;top:50%;width:36px;height:36px;border:2px dashed #ffd76f;border-radius:50%;
-  transform:translate(-50%,-50%);opacity:.8
-}
-.keplerLabels{
-  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:10px
-}
-.keplerLabels button{min-width:125px;padding:10px 14px;border-radius:12px;border:1px solid #36506f;background:#13243b;color:#eaf4ff;font-weight:900}
-.keplerLabels button:hover{border-color:#6da9ff}
-.keplerInfo{position:absolute;top:14px;left:50%;transform:translateX(-50%);color:#cbd9ed;font-size:12px;text-align:center}
+  /* ---------- preview frame (mini pamphlet) ---------- */
+  .preview-col{position:relative;}
+  .preview-sticky{position:sticky; top:76px;}
+  .preview-frame-wrap{
+    border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--surface-raised);
+    box-shadow:0 3px 14px var(--shadow);
+  }
+  .preview-frame{width:100%; overflow:hidden; position:relative; background:#2b2620;}
+  .print-sheet{width:297mm; height:210mm; display:flex; transform-origin:top left; position:absolute; top:0; left:0;}
+  .preview-caption{font-size:12px; color:var(--text-soft); text-align:center; padding:10px 8px 2px;}
+  .preview-actions{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap;}
 
-/* Dobble */
-.dobbleArea{
-  min-height:315px;padding:18px;background:radial-gradient(circle at 50% 50%,#132743,#07111e);
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center
-}
-.dobbleCard{
-  width:175px;height:175px;margin:auto;border-radius:50%;border:2px solid #4d6d91;background:#11213a;
-  display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);
-  place-items:center;padding:16px;box-shadow:inset 0 0 25px #0005,0 10px 22px #0005
-}
-.dobbleIcon{
-  font-size:31px;cursor:pointer;transition:.1s;filter:drop-shadow(0 2px 2px #0007);
-  user-select:none
-}
-.dobbleIcon:hover{transform:scale(1.18)}
-.dobbleIcon.correctPick2{background:#10372b;border:2px solid #63dda1;border-radius:10px;padding:2px}
-.dobbleIcon.wrongPick2{background:#3a1822;border:2px solid #ff7184;border-radius:10px;padding:2px}
-.dobbleHelp{
-  grid-column:1/-1;text-align:center;color:#bdcde1;font-size:12px;margin-top:-3px
-}
+  /* ---------- print sheet contents (shared with export) ---------- */
+  .panel{width:99mm; height:210mm; box-sizing:border-box; padding:11mm 9mm; position:relative; overflow:hidden; font-family:var(--font-body);}
+  .panel-cover, .panel-back{color:#fff; display:flex; flex-direction:column;}
+  .panel-cover .eyebrow, .panel-back .eyebrow{font-size:8.6px; opacity:.85; letter-spacing:.02em; margin-bottom:auto;}
+  .panel-cover h1{font-size:19px; line-height:1.32; margin:10px 0 6px;}
+  .panel-cover .tagline{font-size:9.6px; opacity:.92; line-height:1.5;}
+  .panel-cover .rule{width:34px; height:2px; background:currentColor; opacity:.55; margin:12px 0;}
+  .panel-cover .foot, .panel-back .foot{margin-top:auto; font-size:8.4px; opacity:.85; line-height:1.6;}
+  .panel-dome{position:absolute; right:-14mm; bottom:-10mm; width:66mm; opacity:.15; pointer-events:none;}
+  .panel-works{background:var(--paper); color:var(--ink);}
+  .panel-works h2{font-size:12px; color:var(--ink-soft); margin-bottom:8mm; font-weight:700;}
+  .work-list{display:flex; flex-direction:column; gap:6.5mm;}
+  .work-item h3{font-size:11px; margin-bottom:1.2mm; color:var(--ink);}
+  .work-item .meta{font-size:8px; color:var(--ink-faint); display:block; margin-bottom:1.6mm;}
+  .work-item .desc{font-size:8.6px; color:var(--ink-soft); line-height:1.5; margin-bottom:1.6mm;}
+  .work-item .chip{display:inline-block; font-size:7.6px; padding:2px 6.5px; border-radius:999px; border:1px solid currentColor; color:var(--wchip,#1F4E79);}
+  .panel-works.dense .work-item h3{font-size:9.6px;} .panel-works.dense .work-item .desc{font-size:7.6px;} .panel-works.dense .work-list{gap:4.2mm;}
+  .panel-back .eyebrow{opacity:.75;}
+  .panel-back blockquote{margin:8mm 0 0; font-family:var(--font-display); font-size:11.5px; line-height:1.65; position:relative;}
+  .panel-back blockquote::before{content:'“'; font-size:26px; opacity:.5; display:block; line-height:.4; margin-bottom:4px;}
+  .panel-empty-hint{font-size:9px; opacity:.6; font-style:italic;}
 
-/* memory adjustments */
-.memoryScene{min-height:315px}
-.memorySelectWrap{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:14px;background:#07111f;min-height:260px}
-.memChoice{min-height:85px}
-@media(max-width:700px){
- .solarLine{left:2%;right:2%}.solarSlot{font-size:8px}
- .dragPlanet{width:48px;height:48px;font-size:10px}
- .dobbleArea{gap:8px}.dobbleCard{width:145px;height:145px}.dobbleIcon{font-size:25px}
- .memorySelectWrap{grid-template-columns:repeat(3,1fr)}
-}
+  /* ---------- teacher gallery ---------- */
+  .gallery-head{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px;}
+  .gallery-stats{display:flex; gap:22px; flex-wrap:wrap;}
+  .stat b{font-family:var(--font-display); font-size:26px; display:block; line-height:1;}
+  .stat span{font-size:11.5px; color:var(--text-soft);}
+  .toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:18px;}
+  .toolbar input[type=text]{border:1.5px solid var(--line); border-radius:9px; padding:9px 12px; font-size:13.5px; background:var(--surface-raised); min-width:180px;}
+  .dropzone{
+    border:1.5px dashed var(--line); border-radius:12px; padding:14px 16px; font-size:12.5px; color:var(--text-soft);
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:var(--surface-raised);
+  }
+  .gallery-wall{
+    background:repeating-linear-gradient(0deg, var(--surface), var(--surface) 100%);
+    border-radius:16px; padding:20px; border:1px solid var(--line);
+  }
+  .gallery-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px;}
+  .gcard{
+    background:var(--surface-raised); border-radius:10px; padding:16px 16px 14px; position:relative;
+    box-shadow:0 6px 14px var(--shadow); border:1px solid var(--line);
+  }
+  .gcard:nth-child(odd){transform:rotate(-0.6deg);}
+  .gcard:nth-child(even){transform:rotate(0.5deg);}
+  .gcard::before{
+    content:''; position:absolute; top:-7px; left:50%; transform:translateX(-50%) rotate(-8deg);
+    width:22px; height:12px; border-radius:2px; background:var(--gold); opacity:.85; box-shadow:0 2px 3px var(--shadow);
+  }
+  .gcard .swatch{height:8px; border-radius:4px; margin-bottom:10px;}
+  .gcard h3{font-size:15.5px; margin-bottom:3px;}
+  .gcard .who{font-size:12px; color:var(--text-soft); margin-bottom:8px;}
+  .gcard .chips{display:flex; gap:5px; flex-wrap:wrap; margin-bottom:10px;}
+  .gcard .chips span{font-size:10.5px; padding:3px 8px; border-radius:999px; background:var(--bg); color:var(--text-soft);}
+  .gcard .badge{position:absolute; top:10px; right:10px; font-size:10px; padding:3px 7px; border-radius:999px;}
+  .badge.live{background:rgba(62,145,99,.15); color:var(--ok);}
+  .badge.import{background:rgba(173,127,38,.18); color:#8a6317;}
+  .gcard .gc-actions{display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; align-items:center;}
+  .gcard .pick{margin-left:auto; display:flex; align-items:center; gap:5px; font-size:11.5px; color:var(--text-soft);}
 
+  .empty-state{
+    text-align:center; padding:52px 18px; color:var(--text-soft); display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .empty-state .ic{font-size:34px;}
+  .copylink-row{display:flex; gap:8px; align-items:center; justify-content:center; margin-top:8px; flex-wrap:wrap;}
+  .copylink-row code{background:var(--bg); padding:6px 10px; border-radius:8px; font-size:12px; max-width:44ch; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 
-.dragPlanet{touch-action:none;z-index:8}.dragPlanet.dragging{z-index:30;transform:scale(1.08);cursor:grabbing;box-shadow:0 0 0 3px #6ba8ff55,0 14px 30px #0008}.solarSlot.over{background:#173f33;border-color:#68dda2}.solarSlot.done{background:#12372e;border-color:#68dda2;color:#8ff0bd}
+  /* ---------- modal ---------- */
+  .modal-backdrop{
+    position:fixed; inset:0; background:rgba(20,15,8,.55); z-index:100; display:flex; align-items:center; justify-content:center;
+    padding:24px; overflow:auto;
+  }
+  .modal-box{background:var(--surface-raised); border-radius:16px; max-width:960px; width:100%; padding:22px; box-shadow:0 20px 50px rgba(0,0,0,.4);}
+  .modal-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:14px;}
+  .modal-head h3{font-size:18px;}
+  .icon-btn{background:none; border:none; font-size:20px; color:var(--text-soft); padding:2px 6px; border-radius:8px;}
+  .icon-btn:hover{background:var(--bg);}
 
+  /* ---------- toast ---------- */
+  #toast-wrap{position:fixed; bottom:calc(18px + env(safe-area-inset-bottom,0px)); left:50%; transform:translateX(-50%); z-index:200; display:flex; flex-direction:column; gap:8px; align-items:center; width:min(92vw,420px);}
+  .toast{background:var(--ink); color:#F3ECD3; padding:11px 16px; border-radius:10px; font-size:13.5px; box-shadow:0 8px 20px rgba(0,0,0,.35); display:flex; align-items:center; gap:8px;}
+  .toast.error{background:var(--danger);}
+  .toast.ok{background:var(--ok);}
 
-/* pair matching game */
-.pairArea{min-height:380px;padding:18px;background:radial-gradient(circle at 50% 20%,#182d4d,#07111e)}
-.pairInstruction{text-align:center;color:#c7d8ec;font-size:12px;margin-bottom:12px}
-.pairGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:760px;margin:auto}
-.pairCard{
-  position:relative;height:120px;border:1px solid #35506f;border-radius:15px;
-  background:#112038;color:#edf6ff;transition:transform .18s,background .18s,box-shadow .18s;
-  cursor:pointer;overflow:hidden
-}
-.pairCard .pairBack,.pairCard .pairFront{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  flex-direction:column
-}
-.pairBack{font-size:34px;font-weight:900;color:#77a9dc;background:linear-gradient(145deg,#173252,#0f1e33)}
-.pairFront{display:none!important;background:#10263f}
-.pairCard.flipped .pairBack{display:none!important}
-.pairCard.flipped .pairFront{display:flex!important}
-.pairFront small{margin-top:6px;font-size:11px;color:#c9d8eb}
-.pairCard.flipped{transform:scale(.98);border-color:#6ba8ff}
-.pairCard.matched{border-color:#63dca0;box-shadow:0 0 18px #63dca044;background:#10352b}
-.pairCard.matched .pairFront{display:flex!important}
-.pairResult{text-align:center;color:#c4d4e9;font-size:13px;font-weight:800;margin-top:14px;min-height:22px}
-.pairText{font-size:25px;letter-spacing:-.5px}.pairPicture{font-size:50px;line-height:1}
-@media(max-width:700px){.pairGrid{grid-template-columns:repeat(2,1fr)}.pairCard{height:105px}}
-.pairGrid{grid-template-columns:repeat(2,1fr)}.pairCard{height:105px}}
+  /* ---------- success screen ---------- */
+  .success-box{text-align:center; padding:30px 10px;}
+  .success-box .ic{font-size:44px; margin-bottom:6px;}
 
+  .fallback-box{border:1.5px solid var(--gold); background:rgba(173,127,38,.08); border-radius:12px; padding:16px; font-size:13px; color:var(--text-soft); line-height:1.7;}
+  .fallback-box b{color:var(--text);}
 
-.pairText{font-size:25px;letter-spacing:-.5px}
-.pairPicture{font-size:50px;line-height:1}
-
-/* responsive */
-@media(max-width:920px){.layout{grid-template-columns:1fr}.side{position:relative;top:auto}}
-@media(max-width:650px){.choices,.resultGrid{grid-template-columns:1fr}.content{padding:20px}.hero{padding:43px 18px}.title{font-size:29px}.question{font-size:20px}.selectArea{grid-template-columns:repeat(2,1fr)}}
+  @media print{ #topbar,.wizard-actions,.preview-actions{display:none;} }
+  .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="top">
-    <div class="brand">🔭 과학의 역사와 문화 · INTERACTIVE</div>
-    <button class="sound" onclick="toggleSound()" id="soundBtn">🔊</button>
+
+<div id="topbar">
+  <div class="brand">
+    <span class="mark">🏛️</span>
+    <span class="name">르네상스 예술 여행<small id="brand-sub">과학과 함께 하는 팸플릿 만들기</small></span>
   </div>
-  <div class="layout">
-    <main class="main" id="app"></main>
-    <aside class="side" id="side"></aside>
+  <div class="topbar-right">
+    <span class="sync-pill hidden" id="sync-pill"><span class="dot" id="sync-dot"></span><span id="sync-text">연결 확인 중</span></span>
+    <button class="linklike hidden" id="switch-role-btn">역할 변경</button>
   </div>
-  <div class="footer">수업용 체험 웹앱 · 과학자의 신념과 과학 지식 형성</div>
 </div>
-<div class="flashMsg" id="flashMsg"></div>
+
+<main>
+  <!-- LANDING -->
+  <section id="view-landing" class="landing">
+    <div class="emblem">🖋️</div>
+    <div class="eyebrow">과학과 문명의 탄생과 통합 · 04. 르네상스와 과학 혁명</div>
+    <h1>과학과 함께 하는<br>르네상스 예술 여행</h1>
+    <p class="lede">르네상스 시기 예술 작품 속에 숨은 과학적 원리를 찾아 나만의 팸플릿을 만들고, 선생님께 바로 제출해보세요.</p>
+    <div class="role-row">
+      <button class="role-card" id="go-student">
+        <span class="ic">🎒</span>
+        <h3>학생으로 시작하기</h3>
+        <p>단계별로 작품을 소개하고, 팸플릿을 완성해 제출합니다.</p>
+        <span class="btn btn-primary btn-sm" style="align-self:flex-start;">시작하기</span>
+      </button>
+      <button class="role-card" id="go-teacher">
+        <span class="ic">🖼️</span>
+        <h3>선생님으로 열기</h3>
+        <p>학생들이 제출한 팸플릿을 갤러리로 모아 보고 다운로드합니다.</p>
+        <span class="btn btn-sm" style="align-self:flex-start;">갤러리 열기</span>
+      </button>
+    </div>
+    <p class="source-note">※ 학생 화면과 선생님 화면은 같은 링크 하나로 이용합니다. 이 링크를 학생들에게 공유해주세요.</p>
+  </section>
+
+  <!-- STUDENT WIZARD -->
+  <section id="view-student" class="hidden">
+    <div id="student-wizard"></div>
+    <div id="student-success" class="hidden"></div>
+  </section>
+
+  <!-- TEACHER DASHBOARD -->
+  <section id="view-teacher" class="hidden">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:6px;">갤러리 워크</div>
+        <h1 style="font-size:26px;">제출된 팸플릿 모아보기</h1>
+      </div>
+      <div class="gallery-stats">
+        <div class="stat"><b id="stat-total">0</b><span>제출됨</span></div>
+        <div class="stat"><b id="stat-live">0</b><span>실시간 수신</span></div>
+        <div class="stat"><b id="stat-import">0</b><span>파일로 가져옴</span></div>
+      </div>
+    </div>
+
+    <div class="dropzone" style="margin-bottom:14px;">
+      <span>📥 학생이 보낸 <b>제출파일(.json)</b>이 있다면 여기로 불러오세요 —</span>
+      <button class="btn btn-sm" id="import-btn">파일 선택</button>
+      <input type="file" id="import-input" accept="application/json" multiple class="visually-hidden">
+      <span id="dropzone-note" style="color:var(--text-soft);"></span>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="search-input" placeholder="이름 또는 모둠으로 검색">
+      <button class="btn btn-sm" id="copy-link-btn">🔗 학생용 링크 복사</button>
+      <span style="flex:1;"></span>
+      <button class="btn btn-sm" id="zip-selected-btn">선택 항목 ZIP 다운로드</button>
+      <button class="btn btn-gold btn-sm" id="zip-all-btn">전체 ZIP 일괄 다운로드</button>
+    </div>
+
+    <div class="gallery-wall">
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <div id="gallery-empty" class="empty-state hidden">
+        <div class="ic">🖼️</div>
+        <p><b>아직 제출된 팸플릿이 없어요.</b></p>
+        <p style="font-size:13px;">아래 링크를 학생들에게 공유해 팸플릿 만들기를 시작해보세요.</p>
+        <div class="copylink-row"><code id="empty-link"></code><button class="btn btn-sm" id="copy-link-btn-2">복사</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="modal-root"></div>
+<div id="toast-wrap"></div>
+
+<!-- SVG dome watermark template (Renaissance dome silhouette) -->
+<template id="dome-svg-tpl">
+  <svg class="panel-dome" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+    <path d="M100 6c26 0 40 20 42 34h-84c2-14 16-34 42-34z"/>
+    <rect x="96" y="0" width="8" height="10"/>
+    <circle cx="100" cy="2" r="3"/>
+    <rect x="34" y="40" width="132" height="10"/>
+    <rect x="44" y="50" width="10" height="70"/>
+    <rect x="146" y="50" width="10" height="70"/>
+    <rect x="70" y="50" width="10" height="70"/>
+    <rect x="120" y="50" width="10" height="70"/>
+    <rect x="96" y="50" width="10" height="70"/>
+    <rect x="24" y="120" width="152" height="10"/>
+    <rect x="10" y="130" width="180" height="12"/>
+  </svg>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <script>
-const SKILLS={
-  observe:{name:"관찰능력",color:"#6ba8ff"},
-  verify:{name:"검증능력",color:"#63d9a0"},
-  evidence:{name:"증거수집능력",color:"#ffd66e"},
-  compare:{name:"비교능력",color:"#aa8cff"},
-  logic:{name:"논리추론능력",color:"#f2a07d"},
-  authority:{name:"권위판단능력",color:"#62dff4"}
+(function(){
+"use strict";
+
+/* ============================== 설정값 ============================== */
+const THEMES = {
+  lapis:      { label:'라피스 청금',     panel:'#1F4E79', text:'#F4EFDC', chip:'#EAD9A0' },
+  verdigris:  { label:'베르디그리 청록', panel:'#2F5C50', text:'#F1EEDD', chip:'#E7D9A6' },
+  terra:      { label:'프레스코 테라코타', panel:'#8C3A2B', text:'#F8EBDA', chip:'#EFCFA8' },
+  ink:        { label:'다빈치 잉크 드로잉', panel:'#2B2620', text:'#EDE7D6', chip:'#C9B98C' },
+};
+const PRINCIPLE_HINTS = ['원근법','인체 비례(해부학)','공기 원근법','수학적 비례','건축 구조공학','기하학적 우주관','실험적 검증','빛과 색의 원리'];
+const SOURCE_LABEL = '과학의 역사와 문화 · 04. 르네상스와 과학 혁명';
+
+const LS = {
+  role: 'rp_role_v1',
+  studentId: 'rp_student_id_v1',
+  draft: (id)=>'rp_draft_v1_'+id,
+  imported: 'rp_teacher_imported_v1',
 };
 
-const STAGES=[
-{
-  scientist:"프톨레마이오스",title:"보이는 하늘을 설명하라",sub:"1단계 · 프톨레마이오스",
-  startStory:"당신은 새로운 관측 결과를 정리하고 있습니다. 그런데 관측한 결과가 지금까지 배운 설명과 맞지 않습니다.",
-  startQuestion:"내가 믿어 온 설명과 내가 직접 본 결과가 충돌한다면, 나는 어떻게 행동할까?",
-  startChoices:[
-    ["내가 틀렸을 가능성을 먼저 생각하고 관측 방법을 다시 확인한다","증거를 확인한 뒤 판단하는 성향",{verify:2,observe:1}],
-    ["일단 기존 설명을 유지하고 관측 결과의 오류를 찾는다","기존 지식을 기준으로 확인하는 성향",{logic:2}],
-    ["새로운 결과를 기록하고 다른 사람에게도 확인해 달라고 한다","공동 검증을 중시하는 성향",{evidence:2,compare:1}],
-    ["기존 설명을 믿더라도 새로운 결과를 그냥 버리지는 않는다","신념과 증거를 함께 보는 성향",{authority:1,evidence:1}]
-  ],
-  story:"알렉산드리아의 천문학자 프톨레마이오스는 지구에서 관측되는 행성의 움직임을 설명하려고 합니다. 특히 행성이 때때로 뒤로 움직이는 것처럼 보이는 역행을 설명해야 했습니다. 당시에는 천체의 운동을 원운동으로 설명하려는 생각이 강했습니다.",
-  quote:"“기존의 생각을 유지하면서도 관측되는 현상을 정확하게 설명할 수 있을까?”",
-  choices:[
-    ["행성의 위치를 계속 관측하고 기록한다","관찰능력 +2 · 증거수집 +1",{observe:2,evidence:1}],
-    ["원운동과 주전원을 조합해 관측 결과를 설명한다","논리추론 +2 · 비교 +1",{logic:2,compare:1}],
-    ["기존 설명이 정말 필요한 전제인지 다시 따져 본다","권위판단 +2",{authority:2}],
-    ["계산 결과와 실제 관측을 여러 번 비교한다","검증능력 +2",{verify:2}]
-  ],
-  quiz:[
-    ["프톨레마이오스의 천문 체계에서 지구는 어디에 놓이는가?",["태양의 표면","우주의 중심","목성의 중심","우주의 바깥"],1,"logic"],
-    ["프톨레마이오스가 주전원을 도입한 주된 목적은?",["망원경을 만들기 위해","지구 중심 체계에서 행성의 겉보기 운동과 역행을 설명하기 위해","지구의 자전을 증명하기 위해","별의 색을 설명하기 위해"],1,"evidence"],
-    ["행성의 역행은 무엇인가?",["행성이 궤도를 벗어나는 것","행성이 잠시 멈추는 것","지구에서 볼 때 행성이 잠시 반대 방향으로 움직이는 것처럼 보이는 현상","행성이 빛을 잃는 현상"],2,"observe"],
-    ["주전원과 같은 수학적 장치를 여러 개 사용한 이유로 가장 적절한 것은?",["관측되는 행성의 위치를 더 정밀하게 계산하기 위해","태양의 크기를 계산하기 위해","달의 위상을 없애기 위해","지구의 자전을 설명하기 위해"],0,"compare"],
-    ["프톨레마이오스의 모델을 과학사적으로 이해할 때 가장 적절한 설명은?",["처음부터 완전한 진리였다","아무 근거 없이 만든 이야기였다","당시 관측 자료를 설명하려는 정교한 수학적 모델이었다","후대 과학과 전혀 관계가 없다"],2,"authority"]
-  ]
-},
-{
-  scientist:"코페르니쿠스",title:"중심을 옮겨 생각하다",sub:"2단계 · 코페르니쿠스",
-  startStory:"이번에는 많은 사람이 오랫동안 믿어 온 설명을 의심하게 되는 상황입니다.",
-  startQuestion:"모두가 당연하다고 생각하는 설명과 새로운 증거가 충돌한다면, 나는 어떻게 할까?",
-  startChoices:[
-    ["다수의 의견보다 자료를 먼저 확인한다","독립적으로 판단하는 성향",{authority:2,evidence:1}],
-    ["기존 설명을 존중하면서 새로운 설명과 비교한다","비교하고 조정하는 성향",{compare:2}],
-    ["새로운 생각이 맞는지 반복해서 검증한다","검증을 우선하는 성향",{verify:2}],
-    ["일단 판단을 미루고 더 많은 자료를 모은다","신중하게 증거를 모으는 성향",{evidence:2}]
-  ],
-  story:"코페르니쿠스는 오랫동안 익숙했던 지구 중심의 우주 체계 대신 태양 중심으로 행성의 운동을 설명하는 방법을 제안했습니다. 새로운 설명은 기존의 세계관과 충돌할 수 있었습니다.",
-  quote:"“익숙한 설명보다 더 단순하고 일관된 설명이 있다면, 우리는 중심을 옮길 수 있을까?”",
-  choices:[
-    ["새 모델과 기존 모델을 관측 결과로 비교한다","비교능력 +2 · 검증 +1",{compare:2,verify:1}],
-    ["새로운 모델이 틀릴 가능성을 먼저 검토한다","검증능력 +2",{verify:2}],
-    ["기존 권위를 존중하되 새로운 증거도 함께 살핀다","권위판단 +1 · 증거수집 +1",{authority:1,evidence:1}],
-    ["새로운 모델이 어떻게 더 단순해지는지 계산한다","논리추론 +2",{logic:2}]
-  ],
-  quiz:[
-    ["코페르니쿠스의 대표적인 변화는?",["지구를 우주의 유일한 중심으로 보는 것","태양을 중심으로 행성의 운동을 설명하는 체계를 제안한 것","달을 중심으로 우주를 설명한 것","별이 지구에 붙어 있다고 주장한 것"],1,"compare"],
-    ["코페르니쿠스의 체계에서 지구는?",["움직이지 않는다","태양 주위를 공전한다","태양의 중심이다","우주 밖에 있다"],1,"logic"],
-    ["코페르니쿠스의 설명을 평가할 때 중요한 것은?",["얼마나 익숙한가","관측과 계산이 실제 하늘의 움직임을 얼마나 잘 설명하는가","얼마나 오래 믿어왔는가","얼마나 많은 사람이 좋아하는가"],1,"verify"],
-    ["과학사에서 새로운 모델은 기존 모델과 어떤 관계를 가질 수 있는가?",["기존 문제를 새로운 방식으로 설명하며 발전할 수 있다","항상 아무 관계가 없다","기존 연구를 모두 삭제한다","증거 없이 바로 확정된다"],0,"evidence"],
-    ["새로운 가설을 과학적으로 검토할 때 가장 중요한 것은?",["검증 가능한 설명을 제시하는 것","유명한 사람이 지지하는 것","오래 유지하는 것","논쟁이 없는 것"],0,"verify"]
-  ]
-},
-{
-  scientist:"갈릴레이",title:"망원경으로 하늘을 다시 보다",sub:"3단계 · 갈릴레이",
-  startStory:"새로운 도구가 이전에는 볼 수 없었던 현상을 보여줍니다. 하지만 사람들은 ‘그 도구를 믿을 수 있느냐’고 묻습니다.",
-  startQuestion:"새로운 도구가 내 생각과 다른 결과를 보여준다면, 나는 무엇부터 확인할까?",
-  startChoices:[
-    ["도구의 원리와 오차 가능성을 먼저 확인한다","도구를 검증하는 성향",{verify:2}],
-    ["같은 현상을 여러 번 관찰한다","반복 관찰을 중시하는 성향",{observe:2}],
-    ["다른 사람에게도 같은 현상이 보이는지 묻는다","공동 검증을 중시하는 성향",{compare:2}],
-    ["새로운 결과를 일단 기록하고 기존 생각과 비교한다","증거와 이론을 함께 보는 성향",{evidence:2,compare:1}]
-  ],
-  story:"갈릴레이는 망원경을 이용해 달의 표면, 목성의 위성 등 이전에 충분히 보지 못했던 천체의 모습을 관찰했습니다. 새로운 관측은 기존 우주관을 다시 생각하게 만들었습니다.",
-  quote:"“새로운 도구가 보여준 사실을 어떻게 믿을 만한 지식으로 만들 수 있을까?”",
-  choices:[
-    ["망원경의 성능과 관측 조건부터 확인한다","검증능력 +2",{verify:2}],
-    ["새로운 관측을 여러 번 기록하고 비교한다","관찰능력 +1 · 증거수집 +2",{observe:1,evidence:2}],
-    ["다른 관측자에게 같은 현상을 확인해 달라고 한다","검증능력 +2 · 비교 +1",{verify:2,compare:1}],
-    ["기존 이론과 맞지 않아도 관측 사실을 먼저 기록한다","증거수집 +2",{evidence:2}]
-  ],
-  quiz:[
-    ["갈릴레이의 망원경 관측이 과학사에서 중요한 이유는?",["천체에 관한 새로운 관측 증거를 제공했기 때문","망원경을 처음 발명했기 때문","모든 논쟁을 즉시 끝냈기 때문","수학을 없앴기 때문"],0,"evidence"],
-    ["갈릴레이가 관측한 대표적인 대상은?",["목성의 위성","해왕성의 고리만","지구 내부의 핵","태양의 중심"],0,"observe"],
-    ["달 표면 관측은 무엇을 보여주는 데 기여했는가?",["천체도 울퉁불퉁한 지형을 가질 수 있다는 점","달이 지구보다 크다는 점","달에 바다가 있다는 확정적 증거","달이 움직이지 않는다는 점"],0,"observe"],
-    ["새로운 관측 도구를 사용할 때 필요한 태도는?",["도구의 한계와 오차 가능성을 함께 검토한다","기존 이론과 맞는 결과만 기록한다","한 번만 관찰한다","도구가 보여주는 것은 항상 완벽하다고 생각한다"],0,"verify"],
-    ["갈릴레이의 사례에서 과학 지식 형성에 중요한 요소는?",["새로운 관측 도구와 반복적인 관찰","권위자의 결정","유행","개인의 취향"],0,"evidence"]
-  ]
-},
-{
-  scientist:"케플러",title:"완벽한 원에서 벗어나다",sub:"4단계 · 케플러",
-  startStory:"정밀한 관측 자료가 쌓이면서 오랫동안 아름답다고 여겨진 설명이 조금씩 어긋나기 시작합니다.",
-  startQuestion:"내가 오랫동안 옳다고 믿은 생각과 정확한 측정값이 계속 어긋난다면?",
-  startChoices:[
-    ["측정과 계산에 문제가 없는지 다시 확인한다","검증형 성향",{verify:2}],
-    ["자료에 맞는 새로운 설명을 찾아본다","증거를 따라 수정하는 성향",{evidence:2}],
-    ["기존 모델을 유지하되 왜 어긋나는지 분석한다","논리적으로 수정하는 성향",{logic:2}],
-    ["다른 연구자에게 계산을 다시 해 보도록 한다","비교와 검증을 중시하는 성향",{compare:2,verify:1}]
-  ],
-  story:"케플러는 정밀한 행성 관측 자료를 바탕으로 행성의 궤도를 연구했습니다. 완벽한 원이라는 생각만으로는 자료를 정확히 설명하기 어려웠고, 결국 타원 궤도라는 새로운 설명으로 나아갔습니다.",
-  quote:"“아름다운 생각을 지키는 것보다 자료를 더 잘 설명하는 것이 중요하다면?”",
-  choices:[
-    ["관측값과 계산값의 차이를 계속 기록한다","증거수집 +2 · 관찰 +1",{evidence:2,observe:1}],
-    ["원운동을 유지하면서 계산을 수정한다","논리추론 +2",{logic:2}],
-    ["타원이라는 다른 모델을 가설로 세운다","논리추론 +1 · 비교 +2",{logic:1,compare:2}],
-    ["다른 연구자의 계산과 독립적으로 비교한다","검증 +2 · 비교 +1",{verify:2,compare:1}]
-  ],
-  quiz:[
-    ["케플러의 행성 운동 연구에서 중요한 변화는?",["행성 궤도를 타원으로 설명한 것","지구가 평평하다고 주장한 것","망원경을 발명한 것","중력 법칙을 처음 완성한 것"],0,"logic"],
-    ["케플러가 정밀한 관측 자료를 중요하게 여긴 이유는?",["자신의 믿음을 지키기 위해","모델의 계산이 실제 행성 위치와 얼마나 맞는지 확인하기 위해","권위자의 말을 증명하기 위해","별의 색을 분류하기 위해"],1,"evidence"],
-    ["케플러의 연구가 보여주는 과학자의 태도는?",["자료가 충분하면 기존 가정을 수정할 수 있다","기존 생각을 절대 바꾸면 안 된다","다수 의견이 곧 증거다","관측보다 전통이 중요하다"],0,"verify"],
-    ["타원 궤도가 과학적 설명이 되기 위해 필요한 것은?",["아름답다는 느낌","반복 관측과 계산 결과의 일치","유명한 사람의 승인만","오래된 이론과의 일치"],1,"verify"],
-    ["과학 모델과 관측 자료의 관계는?",["자료는 모델을 평가하고 수정하게 만들 수 있다","모델은 자료보다 항상 우선한다","둘은 완전히 무관하다","모델은 검증할 필요가 없다"],0,"evidence"]
-  ]
-},
-{
-  scientist:"뉴턴",title:"서로 다른 현상을 연결하다",sub:"5단계 · 뉴턴",
-  startStory:"이제 서로 다른 연구 결과를 하나의 원리로 연결할 수 있는 가능성이 보입니다. 하지만 좋은 아이디어만으로는 충분하지 않습니다.",
-  startQuestion:"여러 사람이 남긴 서로 다른 자료를 하나의 설명으로 묶어야 한다면, 나는 무엇을 할까?",
-  startChoices:[
-    ["서로 다른 결과에서 공통된 패턴을 찾는다","비교와 연결을 중시하는 성향",{compare:2}],
-    ["새로운 설명이 실제로 예측할 수 있는지 확인한다","검증형 성향",{verify:2}],
-    ["기존 연구의 장점과 한계를 먼저 정리한다","비판적으로 연결하는 성향",{logic:2,evidence:1}],
-    ["유명한 이론이어도 반례가 있는지 확인한다","독립적 판단 성향",{authority:2,verify:1}]
-  ],
-  story:"뉴턴은 앞선 연구자들의 결과를 연결해 운동과 힘을 설명하는 체계를 발전시켰습니다. 과학 지식은 한 사람의 생각만으로 생기는 것이 아니라 이전의 발견과 수학적 설명이 연결되면서 확장되기도 합니다.",
-  quote:"“좋은 이론은 서로 다른 현상을 연결하고 새로운 결과를 예측할 수 있게 해 주는가?”",
-  choices:[
-    ["앞선 연구 결과에서 공통된 원리를 찾는다","비교 +2 · 논리추론 +1",{compare:2,logic:1}],
-    ["수학적 결과가 실제 현상과 맞는지 확인한다","검증 +2 · 증거 +1",{verify:2,evidence:1}],
-    ["유명한 이론이라도 반례가 없는지 살핀다","권위판단 +2",{authority:2}],
-    ["관측과 계산을 함께 사용해 예측을 시험한다","검증 +2 · 논리추론 +1",{verify:2,logic:1}]
-  ],
-  quiz:[
-    ["뉴턴의 과학사적 업적을 가장 적절하게 설명한 것은?",["앞선 연구를 연결해 운동과 힘을 설명하는 체계를 발전시켰다","모든 과학을 혼자 시작했다","관측을 사용하지 않았다","코페르니쿠스와 전혀 관련이 없다"],0,"compare"],
-    ["뉴턴의 운동 법칙은 무엇을 설명하는 데 사용되는가?",["힘과 운동의 관계","별의 색만","달의 위상만","식물의 분류"],0,"logic"],
-    ["만유인력의 중요한 의미는?",["천체와 지상의 운동을 하나의 힘 개념으로 설명하는 데 기여했다","태양을 지구로 바꾸었다","망원경을 발명했다","지구가 평평하다고 증명했다"],0,"compare"],
-    ["과학 이론의 설명력을 높이는 중요한 특징은?",["서로 다른 현상을 연결해 설명하고 새로운 현상을 예측할 수 있는 것","복잡한 용어를 많이 쓰는 것","권위자가 믿는 것","오래 유지되는 것"],0,"logic"],
-    ["뉴턴의 사례가 보여주는 과학 지식의 형성 방식은?",["선행 연구가 새로운 종합과 이론으로 연결될 수 있다","한 과학자의 생각만으로 완성된다","이전 연구는 항상 폐기된다","실험과 관측은 필요 없다"],0,"evidence"]
-  ]
-}
-];
-
-const MINI=[
- {type:"retrograde",name:"역행 반사신경 게임",desc:"행성이 정상적으로 움직이다가 갑자기 반대 방향으로 움직이기 시작합니다. 방향이 바뀌는 순간 바로 버튼을 눌러 보세요.",skill:"observe"},
- {type:"solarDrag",name:"태양계 행성 배치",desc:"흩어진 8개 행성을 마우스로 끌어서 태양에서 가까운 순서대로 아래 태양계 라인에 배치하세요. 이 게임은 한 번만 진행합니다.",skill:"compare"},
- {type:"memory",name:"갈릴레이 관측 기록",desc:"4초 동안 보이는 천체 카드 3장을 기억한 뒤, 같은 카드 3장을 선택하세요.",skill:"observe"},
- {type:"pairs",name:"과학 카드 짝맞추기",desc:"8장의 카드를 뒤집어 같은 과학 개념의 글자 카드와 그림 카드를 짝지어 보세요. 총 4쌍, 제한시간 30초입니다.",skill:"compare"},
- {type:"dobble",name:"뉴턴의 과학 도블",desc:"네 개의 원형 카드에 모두 등장하는 단 하나의 공통 아이콘을 제한 시간 안에 찾아 클릭하세요. 각 원판에는 아이콘이 6개씩 있습니다.",skill:"logic"}
-];
-
-let state={
- stage:0,screen:"intro",score:0,totalXP:0,
- skills:Object.fromEntries(Object.keys(SKILLS).map(k=>[k,0])),
- quizIndex:0,startDone:false,correctTotal:0,
- miniRound:1,miniData:[],sound:true
+/* ============================== 전역 상태 ============================== */
+const state = {
+  role: localStorage.getItem(LS.role) || null,
+  studentId: null,
+  data: null,
+  step: 0,
+  db: null,
+  downloads: null,
+  dbReady:false,
+  unsub: null,
+  liveDocs: [],      // 실시간 db 제출 목록
+  importedDocs: [],  // 파일로 불러온 목록
+  writeChain: Promise.resolve(),
+  selected: new Set(),
+  search: '',
 };
-let timers=[];
 
-function levelFromXP(xp){return Math.max(1,1+Math.floor(xp/7))}
-function overallLevel(){return Math.max(1,1+Math.floor(state.totalXP/15))}
-function xpPercent(xp){return (xp%15)/15*100}
-function evolution(lv){
- if(lv<=1)return {body:"🧑‍🔬",gear:"",text:"신입 연구생"};
- if(lv<=2)return {body:"🧑‍🔬",gear:"🔎",text:"관찰 연구생"};
- if(lv<=3)return {body:"🧑‍🔬",gear:"🔭",text:"천문 관측자"};
- if(lv<=4)return {body:"🧑‍🔬",gear:"📚",text:"과학 탐구자"};
- if(lv<=5)return {body:"🧑‍🔬",gear:"🧥",text:"독립 연구자"};
- if(lv<=6)return {body:"🧑‍🔬",gear:"🧪",text:"실험 과학자"};
- if(lv<=7)return {body:"🧑‍🔬",gear:"⚡",text:"이론 연구자"};
- if(lv<=8)return {body:"🧑‍🔬",gear:"🌟",text:"과학의 선구자"};
- return {body:"🧑‍🔬",gear:"🏆✨",text:"위대한 과학자"}
+const STEPS = [
+  {key:'info', roman:'I', label:'시작 정보'},
+  {key:'concept', roman:'II', label:'콘셉트'},
+  {key:'cover', roman:'III', label:'표지'},
+  {key:'works', roman:'IV', label:'작품 소개'},
+  {key:'reflection', roman:'V', label:'탐구 소감'},
+  {key:'review', roman:'VI', label:'미리보기 · 제출'},
+];
+
+/* ============================== 유틸 ============================== */
+const $ = (sel,root)=> (root||document).querySelector(sel);
+const $$ = (sel,root)=> Array.from((root||document).querySelectorAll(sel));
+function el(tag, attrs, ...children){
+  const node = document.createElement(tag);
+  if(attrs) for(const k in attrs){
+    if(k==='class') node.className = attrs[k];
+    else if(k==='html') node.innerHTML = attrs[k];
+    else if(k.startsWith('on')) node.addEventListener(k.slice(2), attrs[k]);
+    else node.setAttribute(k, attrs[k]);
+  }
+  children.flat().forEach(c=>{
+    if(c==null) return;
+    node.appendChild(typeof c==='string' ? document.createTextNode(c) : c);
+  });
+  return node;
 }
-function clearTimers(){timers.forEach(clearTimeout);timers=[];stopTopTimer();stopMiniTimer()}
-function toast(msg,good=true){
- const el=document.getElementById("flashMsg");el.textContent=msg;
- el.style.borderColor=good?"#5fdda0":"#ff7184";
- el.classList.add("show");
- clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("show"),1100)
+function uid(){ return (crypto.randomUUID ? crypto.randomUUID() : 'id-'+Date.now()+'-'+Math.random().toString(16).slice(2)); }
+function sanitizeFilename(s){ return (s||'제출').replace(/[\\/:*?"<>|]/g,'_').replace(/\s+/g,' ').trim().slice(0,80); }
+function fmtTime(ts){
+  if(!ts) return '';
+  const d = new Date(ts);
+  return d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
 }
-function addSkill(key,delta,rerender=true){
- const oldLevel=levelFromXP(Math.max(0,state.skills[key]));
- state.skills[key]=Math.max(0,state.skills[key]+delta);
- state.totalXP=Math.max(0,state.totalXP+Math.max(0,delta));
- const newLevel=levelFromXP(state.skills[key]);
- if(delta>0){
-   if(newLevel>oldLevel){
-     toast(`✨ ${SKILLS[key].name} 레벨업!  Lv.${newLevel}`,true);
-     document.getElementById("avatarCard")?.classList.add("levelup");
-     timers.push(setTimeout(()=>document.getElementById("avatarCard")?.classList.remove("levelup"),700));
-   }else toast(`+${delta} ${SKILLS[key].name}`,true);
- }else if(delta<0)toast(`${delta} ${SKILLS[key].name}`,false);
- if(rerender) renderSide();
+function escapeAttr(s){ return String(s||''); }
+
+function toast(msg, kind){
+  const wrap = $('#toast-wrap');
+  const t = el('div', {class:'toast'+(kind?(' '+kind):'')}, msg);
+  wrap.appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0'; t.style.transition='opacity .3s'; setTimeout(()=>t.remove(),320); }, 3200);
 }
-function addSkills(obj,rerender=true){
- for(const [k,v] of Object.entries(obj)) addSkill(k,v,false);
- if(rerender) renderSide();
+
+function defaultData(){
+  return {
+    studentName:'', groupName:'', className:'',
+    conceptTitle:'', conceptSubtitle:'',
+    theme:'lapis', coverTagline:'',
+    works:[blankWork()],
+    reflection:'',
+    status:'draft',
+    updatedAt: Date.now(),
+    submittedAt: null,
+  };
 }
-function renderSide(){
- const lv=overallLevel(),ev=evolution(lv),pct=(state.totalXP%15)/15*100;
- let html=`<div class="sideInner">
-   <div class="avatarCard" id="avatarCard">
-     <div class="avatarGlow"></div>
-     <div class="avatarVisual"><div class="charBody">${ev.body}</div><div class="charGear">${ev.gear}</div></div>
-     <div class="levelText">SCIENTIST LEVEL ${lv}</div>
-     <div class="xpbar"><i style="width:${pct}%"></i></div>
-     <div class="evoText">${ev.text} · ${state.totalXP} XP</div>
-   </div>
-   <div class="skillTitle"><b>과학자 능력치</b><span class="overall">문제마다 실시간 반영</span></div>`;
- for(const [k,xp] of Object.entries(state.skills)){
-   const lv2=levelFromXP(xp);
-   html+=`<div class="skill">
-      <div class="skillname"><span>${SKILLS[k].name}</span><b>Lv.${lv2}</b></div>
-      <div class="skillbar"><i style="width:${xpPercent(xp)}%;background:${SKILLS[k].color}"></i></div>
-      <div class="skillxp">${xp} XP</div>
-   </div>`;
- }
- html+=`<div class="hint">문제 선택과 미니게임 결과에 따라 능력치가 올라가거나 내려갑니다. 마지막에 어떤 과학자로 성장했는지 확인하세요.</div></div>`;
- document.getElementById("side").innerHTML=html;
+function blankWork(){ return {title:'', artist:'', desc:'', principle:''}; }
+
+/* ============================== 파일 저장(다운로드) ============================== */
+async function saveFile(filename, blob){
+  if(state.downloads){
+    try{
+      await state.downloads.save({filename, data: blob});
+      return true;
+    }catch(e){
+      if(e && e.code==='declined') return false;
+      // capability 사용 불가 시 아래 폴백으로 이어감
+    }
+  }
+  try{
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 8000);
+    return true;
+  }catch(e){
+    toast('파일을 저장하지 못했습니다.', 'error');
+    return false;
+  }
 }
+
+/* ============================== 미리보기(팸플릿) 렌더링 ============================== */
+function buildDomeSvg(){
+  const tpl = $('#dome-svg-tpl');
+  return tpl.content.firstElementChild.cloneNode(true);
+}
+
+function buildPrintSheet(data){
+  const theme = THEMES[data.theme] || THEMES.lapis;
+  const sheet = el('div', {class:'print-sheet'});
+
+  // Panel 1: 표지
+  const cover = el('div', {class:'panel panel-cover'});
+  cover.style.background = theme.panel; cover.style.color = theme.text;
+  cover.appendChild(el('div',{class:'eyebrow'}, '과학과 함께 하는 르네상스 예술 여행'));
+  cover.appendChild(el('h1',{}, data.coverTagline && data.conceptTitle ? data.conceptTitle : (data.conceptTitle || '팸플릿 콘셉트를 입력해주세요')));
+  cover.appendChild(el('div',{class:'rule'}));
+  cover.appendChild(el('p',{class:'tagline'}, data.coverTagline || data.conceptSubtitle || '작품 속 과학의 원리를 따라가는 예술 여행'));
+  const domeC = buildDomeSvg(); domeC.style.color = theme.text; cover.appendChild(domeC);
+  const foot1 = el('div',{class:'foot'});
+  foot1.appendChild(el('span',{}, [data.studentName || '이름 미입력', data.groupName].filter(Boolean).join(' · ')));
+  foot1.appendChild(document.createElement('br'));
+  foot1.appendChild(el('span',{}, data.className || ''));
+  cover.appendChild(foot1);
+  sheet.appendChild(cover);
+
+  // Panel 2: 작품
+  const works = (data.works||[]).filter(w=> (w.title||'').trim() || (w.desc||'').trim());
+  const worksPanel = el('div',{class:'panel panel-works'+(works.length>3?' dense':'')});
+  worksPanel.appendChild(el('h2',{}, '수록 작품'));
+  if(works.length===0){
+    worksPanel.appendChild(el('p',{class:'panel-empty-hint'}, '아직 소개할 작품이 입력되지 않았습니다.'));
+  } else {
+    const list = el('div',{class:'work-list'});
+    works.forEach(w=>{
+      const item = el('div',{class:'work-item'});
+      item.appendChild(el('h3',{}, w.title || '(제목 없음)'));
+      if(w.artist) item.appendChild(el('span',{class:'meta'}, w.artist));
+      if(w.desc) item.appendChild(el('p',{class:'desc'}, w.desc));
+      if(w.principle){
+        const chip = el('span',{class:'chip'}, '과학 원리 · '+w.principle);
+        chip.style.setProperty('--wchip', theme.panel);
+        chip.style.color = theme.panel; chip.style.borderColor = theme.panel;
+        item.appendChild(chip);
+      }
+      list.appendChild(item);
+    });
+    worksPanel.appendChild(list);
+  }
+  sheet.appendChild(worksPanel);
+
+  // Panel 3: 소감/뒷면
+  const back = el('div',{class:'panel panel-back'});
+  back.style.background = theme.panel; back.style.color = theme.text;
+  back.appendChild(el('div',{class:'eyebrow'}, '탐구 소감'));
+  back.appendChild(el('blockquote',{}, data.reflection || '과학기술과 예술의 융합에 대해 느낀 점을 적어보세요.'));
+  const domeB = buildDomeSvg(); domeB.style.color = theme.text; domeB.style.transform='scaleX(-1)'; back.appendChild(domeB);
+  const foot2 = el('div',{class:'foot'});
+  foot2.appendChild(el('span',{}, '제작 · '+ (data.studentName || '이름 미입력') + (data.groupName?(' / '+data.groupName):'') ));
+  foot2.appendChild(document.createElement('br'));
+  foot2.appendChild(el('span',{}, SOURCE_LABEL));
+  back.appendChild(foot2);
+  sheet.appendChild(back);
+
+  return sheet;
+}
+
+const PX_PER_MM = 96/25.4;
+function fitPreview(frameEl, sheetEl){
+  const w = frameEl.clientWidth;
+  const scale = w / (297*PX_PER_MM);
+  sheetEl.style.transform = 'scale('+scale+')';
+  frameEl.style.height = (210*PX_PER_MM*scale)+'px';
+}
+
+/* PDF 생성: 실제 크기(297x210mm)로 오프스크린 렌더 후 캡처 */
+async function dataToPdfBlob(data){
+  const holder = el('div', {style:'position:fixed; left:-99999px; top:0; background:#fff;'});
+  const sheet = buildPrintSheet(data);
+  holder.appendChild(sheet);
+  document.body.appendChild(holder);
+  await new Promise(r=>setTimeout(r, 60)); // 폰트/레이아웃 안정화
+  let blob;
+  try{
+    const canvas = await html2canvas(sheet, {scale:2, useCORS:true, backgroundColor:'#ffffff'});
+    const img = canvas.toDataURL('image/jpeg', 0.92);
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({orientation:'landscape', unit:'mm', format:'a4'});
+    pdf.addImage(img, 'JPEG', 0, 0, 297, 210);
+    blob = pdf.output('blob');
+  } finally {
+    holder.remove();
+  }
+  return blob;
+}
+
+async function downloadPdfFor(data, btn){
+  const original = btn ? btn.textContent : null;
+  if(btn){ btn.disabled = true; btn.textContent = 'PDF 만드는 중…'; }
+  try{
+    const blob = await dataToPdfBlob(data);
+    const fname = sanitizeFilename((data.groupName?data.groupName+'_':'')+(data.studentName||'제출')+'_팸플릿')+'.pdf';
+    await saveFile(fname, blob);
+  }catch(e){
+    toast('PDF 생성 중 문제가 발생했습니다.', 'error');
+  } finally {
+    if(btn){ btn.disabled = false; btn.textContent = original; }
+  }
+}
+
+/* ============================== 클라우드(db) 연결 ============================== */
+async function initCapabilities(){
+  try{
+    if(window.claude && typeof window.claude.use === 'function'){
+      state.db = await window.claude.use('db');
+      state.downloads = await window.claude.use('downloads');
+    }
+  }catch(e){ state.db = null; }
+  state.dbReady = !!state.db;
+  updateSyncPill();
+}
+
+function updateSyncPill(status){
+  const pill = $('#sync-pill'); if(!pill) return;
+  pill.classList.remove('hidden');
+  const dot = $('#sync-dot'); const text = $('#sync-text');
+  if(!state.dbReady){
+    dot.className='dot off'; text.textContent = '오프라인 모드 · 파일로 제출/취합';
+    return;
+  }
+  if(status==='busy'){ dot.className='dot busy'; text.textContent='저장 중…'; return; }
+  if(status==='error'){ dot.className='dot off'; text.textContent='동기화 오류 · 다시 시도합니다'; return; }
+  dot.className='dot live'; text.textContent='실시간 동기화 켜짐';
+}
+
+async function syncStudentToDb(){
+  if(!state.db) return;
+  if(!state.data.studentName.trim()) return;
+  const ref = state.db.doc('submissions/'+state.studentId);
+  updateSyncPill('busy');
+  try{
+    await ref.set(Object.assign({}, state.data, {updatedAt: Date.now()}));
+    updateSyncPill();
+  }catch(e){
+    updateSyncPill('error');
+  }
+}
+function queueSync(){
+  state.writeChain = state.writeChain.then(syncStudentToDb).catch(()=>{});
+}
+let debounceTimer=null;
+function debouncedSync(){
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(queueSync, 850);
+}
+
+/* ============================== 로컬 저장(학생 초안) ============================== */
+function persistDraft(){
+  try{ localStorage.setItem(LS.draft(state.studentId), JSON.stringify(state.data)); }catch(e){}
+}
+function loadOrCreateStudent(){
+  let id = localStorage.getItem(LS.studentId);
+  if(!id){ id = uid(); localStorage.setItem(LS.studentId, id); }
+  state.studentId = id;
+  let data = null;
+  try{ data = JSON.parse(localStorage.getItem(LS.draft(id))); }catch(e){}
+  state.data = data || defaultData();
+}
+
+/* ============================== 라우팅 ============================== */
+function setRole(role){
+  state.role = role;
+  localStorage.setItem(LS.role, role);
+  render();
+}
+$('#go-student').addEventListener('click', ()=>setRole('student'));
+$('#go-teacher').addEventListener('click', ()=>setRole('teacher'));
+$('#switch-role-btn').addEventListener('click', ()=>{
+  if(state.unsub){ state.unsub(); state.unsub=null; }
+  localStorage.removeItem(LS.role);
+  state.role = null;
+  render();
+});
+
 function render(){
- clearTimers();
- if(state.screen==="intro")renderIntro();
- else if(state.screen==="startQuestion")renderStartQuestion();
- else if(state.screen==="story")renderStory();
- else if(state.screen==="quiz")renderQuiz();
- else if(state.screen==="miniIntro")renderMiniIntro();
- else if(state.screen==="mini")renderMini();
- else if(state.screen==="stageComplete")renderStageComplete();
- else renderResult();
- renderSide();
-}
-function renderStageComplete(){
- const s=STAGES[state.stage];
- const avg=state.miniAverage||0;
- document.getElementById("app").innerHTML=`<section class="result">
-   <div class="eyebrow">STAGE COMPLETE</div>
-   <div class="bigLevel">✅ ${state.stage+1}단계 완료</div>
-   <h2 class="title">${s.scientist}</h2>
-   <p>과학사 문제와 미니게임을 모두 마쳤습니다.<br>이번 단계에서 평균 미니게임 정확도는 <b>${Math.round(avg)}%</b>였습니다.</p>
-   <div style="margin:25px 0"><div class="pill" style="display:inline-block">다음 단계: ${state.stage+2}단계 · ${STAGES[state.stage+1].scientist}</div></div>
-   <button class="btn" onclick="goNextStage()">다음 단계로 →</button>
- </section>`;
-}
-function goNextStage(){
- state.stage++;state.miniRound=1;state.miniData=[];state.screen="startQuestion";render()
-}
-function renderIntro(){
- document.getElementById("app").innerHTML=`<section class="hero">
-   <div class="eyebrow">SCIENCE · HISTORY · CULTURE</div>
-   <h1>과학자의 신념을<br>지켜라</h1>
-   <p>프톨레마이오스부터 뉴턴까지, 과학자의 신념과 증거가 충돌하는 순간을 직접 선택하고 탐구하는 인터랙티브 게임입니다.</p>
-   <div class="pills"><span class="pill">5단계</span><span class="pill">심리형 시작 문제</span><span class="pill">과학사 문제 25개</span><span class="pill">미니게임 5종</span><span class="pill">실시간 능력치</span></div>
-   <div style="max-width:520px;margin:28px auto 0;padding:22px;border:1px solid var(--line);background:#0d192a;border-radius:18px">
-     <div style="font-size:21px;font-weight:900;margin-bottom:8px">🔭 게임을 시작하시겠습니까?</div>
-     <div style="color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:17px">문제마다 제한 시간이 있고, 선택과 미니게임 결과에 따라 과학자 능력치가 달라집니다.</div>
-     <button class="btn" onclick="startGame()">네, 시작하겠습니다 →</button>
-   </div>
- </section>`;
-}
-function startGame(){
- state={
-   stage:0,screen:"startQuestion",score:0,totalXP:0,
-   skills:Object.fromEntries(Object.keys(SKILLS).map(k=>[k,0])),
-   quizIndex:0,startDone:false,correctTotal:0,miniRound:1,miniData:[],sound:true
- };
- render()
-}
-function renderStartQuestion(){
- const s=STAGES[state.stage];
- document.getElementById("app").innerHTML=`<section class="content">
-   <div class="stageLine">STAGE ${state.stage+1} / 5 · <b>${s.scientist}</b></div>
-   <h2 class="title">🧠 시작 심리 테스트</h2>
-   <div class="subtitle">상황과 나의 신념이 부딪힐 때 나는 어떻게 행동할까?</div>
-   <div class="story">${s.startStory}</div>
-   <div class="quote"><b>${s.startQuestion}</b></div>
-   <div class="choices">${s.startChoices.map((x,i)=>`<button class="choice" onclick="chooseStart(${i},this)">
-      <b>${String.fromCharCode(65+i)}. ${x[0]}</b><small>${x[1]}</small>
-   </button>`).join("")}</div>
- </section>`;
+  $('#view-landing').classList.toggle('hidden', !!state.role);
+  $('#view-student').classList.toggle('hidden', state.role!=='student');
+  $('#view-teacher').classList.toggle('hidden', state.role!=='teacher');
+  $('#switch-role-btn').classList.toggle('hidden', !state.role);
+  $('#sync-pill').classList.toggle('hidden', !state.role);
+  $('#brand-sub').textContent = state.role==='teacher' ? '선생님 갤러리' : (state.role==='student' ? '학생 팸플릿 만들기' : '과학과 함께 하는 팸플릿 만들기');
 
-}
-function chooseStart(i,btn){
- if(btn?.disabled)return;
- document.querySelectorAll(".choice").forEach(b=>b.disabled=true);
- stopTopTimer();
- const obj=STAGES[state.stage].startChoices[i][2];
- addSkills(obj);state.score+=Object.values(obj).reduce((a,b)=>a+b,0);
- state.screen="story";render()
-}
-function timeOutStart(){
- return;
-}
-function renderStory(){
- const s=STAGES[state.stage];
- document.getElementById("app").innerHTML=`<section class="content">
-   <div class="stageLine">STAGE ${state.stage+1} / 5 · <b>${s.sub}</b></div>
-   <h2 class="title">${s.title}</h2><div class="subtitle">${s.scientist}</div>
-   <div class="story">${s.story}</div>
-   <div class="quote">${s.quote}</div>
-   <div class="choices">${s.choices.map((x,i)=>`<button class="choice" onclick="chooseStory(${i},this)">
-      <b>${String.fromCharCode(65+i)}. ${x[0]}</b><small>${x[1]}</small>
-   </button>`).join("")}</div>
- </section>`;
-}
-function chooseStory(i,btn){
- if(btn){btn.disabled=true;}
- const obj=STAGES[state.stage].choices[i][2];
- addSkills(obj);state.score+=Object.values(obj).reduce((a,b)=>a+b,0);
- state.quizIndex=0;state.screen="quiz";render()
-}
-function renderQuiz(){
- const s=STAGES[state.stage],q=s.quiz[state.quizIndex],pct=state.quizIndex/5*100;
- document.getElementById("app").innerHTML=`<section class="content">
-   <div class="quizhead"><span>STAGE ${state.stage+1} · ${s.scientist}</span><span>${state.quizIndex+1} / 5</span></div>
-   <div class="questionTimer">
-     <div class="questionTimerHead"><span>⏱ 제한 시간</span><span id="timerText">6.0초</span></div>
-     <div class="timerTrack"><i id="timerBar"></i></div>
-   </div>
-   <div class="progress"><i style="width:${pct}%"></i></div>
-   <div class="question"><b>문제 ${state.quizIndex+1}</b><br>${q[0]}</div>
-   <div class="answers">${q[1].map(a=>`<button class="answer" onclick="answerQuiz(this,${q[1].indexOf(a)})">${a}</button>`).join("")}</div>
-   <div class="feedback" id="feedback"></div>
- </section>`;
- startTopTimer(6,()=>timeOutQuiz());
-}
-function answerQuiz(btn,i){
- const s=STAGES[state.stage],q=s.quiz[state.quizIndex],btns=[...document.querySelectorAll(".answer")];
- if(btns.every(b=>b.disabled))return;
- btns.forEach(b=>b.disabled=true);stopTopTimer();
- const feedback=document.getElementById("feedback");
- if(i===q[2]){
-   btn.classList.add("correct");state.score+=3;state.correctTotal++;addSkill(q[3],2);
-   feedback.innerHTML=`<b style="color:#7ff0b5;font-size:18px">✅ 정답!</b><br>${SKILLS[q[3]].name} <b>+2</b>`;
- }else{
-   btn.classList.add("wrong");btns[q[2]].classList.add("correct");
-   addSkill(q[3],-1);
-   feedback.innerHTML=`<b style="color:#ff899a;font-size:18px">❌ 오답!</b><br>정답은 <b>${q[1][q[2]]}</b><br>${SKILLS[q[3]].name} <b>-1</b>`;
- }
- state.quizIndex++;
- timers.push(setTimeout(()=>{
-   if(state.quizIndex<5)render();
-   else{state.miniRound=1;state.miniData=[];state.screen="miniIntro";render()}
- },1100))
-}
-function timeOutQuiz(){
- const s=STAGES[state.stage],q=s.quiz[state.quizIndex],btns=[...document.querySelectorAll(".answer")];
- if(btns.every(b=>b.disabled))return;
- btns.forEach(b=>b.disabled=true);stopTopTimer();
- btns[q[2]].classList.add("correct");
- addSkill(q[3],-1);
- document.getElementById("feedback").innerHTML=`<b style="color:#ff899a;font-size:18px">⏰ 시간 종료!</b><br>정답은 <b>${q[1][q[2]]}</b><br>${SKILLS[q[3]].name} <b>-1</b>`;
- state.quizIndex++;
- timers.push(setTimeout(()=>{
-   if(state.quizIndex<5)render();
-   else{state.miniRound=1;state.miniData=[];state.screen="miniIntro";render()}
- },1100))
+  if(state.role==='student'){
+    if(!state.data) loadOrCreateStudent();
+    renderStudentWizard();
+  }
+  if(state.role==='teacher'){
+    initTeacherView();
+  }
 }
 
-/* MINI GAME routing */
-function renderMiniIntro(){
- const m=MINI[state.stage];
- const oneShot=(m.type==="solarDrag");
- const rounds=(m.type==="pairs"?3:(oneShot?1:5));
- document.getElementById("app").innerHTML=`<section class="content">
-   <div class="miniTop"><span>MINI GAME · ${m.name}</span><span class="badge">${oneShot?"1회 도전":(m.type==="pairs"?"3라운드":"5라운드")}</span></div>
-   <h2 class="title">🎮 ${m.name}</h2>
-   <div class="miniIntro" style="font-size:16px;line-height:1.85;margin-top:16px">${m.desc}</div>
-   <div style="max-width:650px;margin:22px auto;padding:19px 20px;background:#0d192a;border:1px solid var(--line);border-radius:17px">
-      <div style="font-weight:900;margin-bottom:10px">📌 게임 방법</div>
-      <div style="color:#b9cae0;line-height:1.75">${miniInstructions(m.type)}</div>
-   </div>
-   <div style="text-align:center;margin-top:23px">
-     <button class="btn" onclick="startMiniGame()">게임 시작하기 →</button>
-   </div>
- </section>`;
- renderSide();
-}
-function miniInstructions(type){
- if(type==="retrograde") return "행성이 오른쪽으로 이동하다가 갑자기 왼쪽으로 움직이기 시작합니다. <b>방향이 바뀌는 순간</b> 버튼을 눌러 반사신경을 측정합니다. 결과는 반사신경 %로 표시됩니다.";
- if(type==="solarDrag") return "수성→금성→지구→화성→목성→토성→천왕성→해왕성 순서입니다. 행성을 마우스로 끌어서 1~8번 위치에 놓습니다. <b>정확하게 배치할 때마다 제한시간이 2초 늘어납니다.</b>";
- if(type==="memory") return "4초 동안 천체 카드 3장을 보여준 뒤, 8초 동안 기억한 카드를 선택합니다. 이후 여러 카드 중 기억한 3개를 선택합니다. 3개 모두 맞히면 관찰능력이 가장 많이 올라갑니다.";
- if(type==="pairs") return "총 8장의 카드, 4쌍입니다. 카드를 두 장씩 뒤집어 <b>글자 카드와 그림 카드가 같은 개념</b>이면 짝이 완성됩니다. 총 3라운드이며, 빠르게 맞힐수록 비교능력 보너스를 더 많이 받습니다.";
- if(type==="dobble") return "4개의 원판마다 아이콘이 6개씩 있습니다. 네 원판에 공통으로 들어 있는 <b>딱 1개의 아이콘</b>을 찾아 클릭합니다. 제한시간은 15초입니다.";
- return "";
-}
-function startMiniGame(){
- state.screen="mini";
- state.miniData=[];
- render();
-}
-function renderMini(){
- const m=MINI[state.stage];
- const badge=(m.type==="solarDrag")?"1회 도전":(m.type==="pairs"?"ROUND "+state.miniRound+" / 3":`ROUND ${state.miniRound} / 5`);
- document.getElementById("app").innerHTML=`<section class="content">
-   <div class="miniTop"><span>MINI GAME · ${m.name}</span><span class="badge">${badge}</span></div>
-   <h2 class="title">${m.name}</h2>
-   <div class="miniIntro">${m.desc}</div>
-   <div id="miniStage"></div>
-   <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:10px">
-     <button class="btn ghost" style="font-size:12px;padding:9px 12px" onclick="restartCurrentMini()">↻ 이번 게임 다시 시작</button>
-     <button class="btn ghost" style="font-size:12px;padding:9px 12px" onclick="backToMiniIntro()">← 설명 다시 보기</button>
-   </div>
- </section>`;
- initMini(m.type);
- renderSide();
-}
-function backToMiniIntro(){
- clearTimers();
- resetMiniFlags();
- state.screen="miniIntro";
- render();
-}
-function resetMiniFlags(){
- window.memoryFinished=false;
- window.memoryTargets=[];
- window.memoryPicked=[];
- window.memoryCorrectCount=0;
- window.retroClicked=false;
- window.solarFinished=false;
- window.dobbleFound=false;
- window.pairState=null;
- window.solarTimeLimit=15;
-}
-function restartCurrentMini(){
- clearTimers();
- resetMiniFlags();
- state.miniData=[];
- state.screen="miniIntro";
- render();
-}
-function initMini(type){
- if(type==="retrograde")initRetrograde();
- if(type==="solarDrag")initSolarDrag();
- if(type==="memory")initMemory();
- if(type==="pairs")initPairs();
- if(type==="dobble")initDobble()
+/* ============================== 학생 위저드 ============================== */
+function updateField(path, value){
+  const parts = path.split('.');
+  let obj = state.data;
+  for(let i=0;i<parts.length-1;i++) obj = obj[parts[i]];
+  obj[parts[parts.length-1]] = value;
+  state.data.updatedAt = Date.now();
+  persistDraft();
+  debouncedSync();
 }
 
-/* 1. Ptolemy: reaction-time retrograde */
-function initRetrograde(){
- document.getElementById("miniStage").innerHTML=`<div class="gamebox retrogradeArea" id="retroBox">
-   <div class="miniCaption" id="retroCaption">행성이 정상적으로 움직입니다. <b>방향이 바뀌는 순간</b> 버튼을 누르세요!</div>
-   <div class="retroTrack"><div class="retroPlanet" id="retroPlanet"></div></div>
-   <div class="retroDirection" id="retroDirection">→</div>
- </div>
- <div class="controls"><button class="btn" onclick="fireRetrograde()">↩️ 역행 시작을 포착!</button></div>`;
- window.retroPos=12;window.retroDir=1;window.retroStart=performance.now();
- window.retroReverseAt=null;window.retroClicked=false;
- const delay=1400+Math.random()*1100;
- window.retroSwitchTimer=setTimeout(()=>{
-   if(window.retroClicked)return;
-   window.retroReverseAt=performance.now();window.retroDir=-1;
-   const dir=document.getElementById("retroDirection");if(dir)dir.textContent="←";
-   const cap=document.getElementById("retroCaption");if(cap)cap.innerHTML="🔴 <b>역행 시작!</b> 지금 바로 눌러 보세요!";
- },delay);
- timers.push(window.retroSwitchTimer);
- function loop(){
-   if(!document.getElementById("retroPlanet") || window.retroClicked)return;
-   window.retroPos+=window.retroDir*(window.retroDir>0?0.34:0.48);
-   if(window.retroPos>88)window.retroPos=88;
-   if(window.retroPos<12)window.retroPos=12;
-   document.getElementById("retroPlanet").style.left=window.retroPos+"%";
-   window.retroRAF=requestAnimationFrame(loop);
- }
- window.retroRAF=requestAnimationFrame(loop);
- startMiniTimer(5,()=>retrogradeTimeout());
-}
-function reactionMessage(percent){
- if(percent>=90)return "⚡ 초고속 반사신경!";
- if(percent>=70)return "⚡ 매우 빠른 반응!";
- if(percent>=50)return "⚡ 좋은 반응!";
- if(percent>0)return "⚡ 반응 성공!";
- return "⚡ 반응 기회를 놓쳤어요!";
-}
-function fireRetrograde(){
- if(window.retroClicked)return;
- window.retroClicked=true;cancelAnimationFrame(window.retroRAF);clearTimeout(window.retroSwitchTimer);stopMiniTimer();
- let reaction=0;
- if(window.retroReverseAt){
-   const ms=Math.max(0,performance.now()-window.retroReverseAt);
-   reaction=Math.max(0,Math.round(100-ms/8));
- }
- const rb=document.getElementById("retroBox");
- rb.insertAdjacentHTML("beforeend",`<div class="feedbackBox ${reaction>=50?"good":"bad"} show">${reactionMessage(reaction)} <b>반사신경 +${reaction}%</b></div>`);
- const xp=reaction>=80?3:reaction>=50?2:reaction>0?1:0;
- if(xp)addSkill("observe",xp);
- state.score+=Math.round(reaction/20);state.miniData.push(reaction);
- timers.push(setTimeout(nextMini,1100));
-}
-function retrogradeTimeout(){
- if(window.retroClicked)return;
- window.retroClicked=true;cancelAnimationFrame(window.retroRAF);clearTimeout(window.retroSwitchTimer);
- const rb=document.getElementById("retroBox");
- rb.insertAdjacentHTML("beforeend",`<div class="feedbackBox bad show">⏰ 반응 기회를 놓쳤어요 · <b>반사신경 +0%</b></div>`);
- state.miniData.push(0);timers.push(setTimeout(nextMini,1000));
+function renderStudentWizard(){
+  const root = $('#student-wizard');
+  const successRoot = $('#student-success');
+  root.innerHTML=''; successRoot.innerHTML=''; successRoot.classList.add('hidden'); root.classList.remove('hidden');
+
+  if(state.data.status==='submitted' && state.step===STEPS.length-1){
+    renderSuccessScreen();
+    return;
+  }
+
+  const head = el('div',{class:'wizard-head'});
+  const steps = el('div',{class:'steps'});
+  STEPS.forEach((s,i)=>{
+    const chip = el('div',{class:'step-chip'+(i===state.step?' active':'')+(i<state.step?' done':'')},
+      el('span',{class:'num'}, s.roman), el('span',{}, s.label));
+    chip.style.cursor='pointer';
+    chip.addEventListener('click', ()=>{ if(i<=state.step || canProceed(state.step)){ state.step=i; renderStudentWizard(); }});
+    steps.appendChild(chip);
+  });
+  head.appendChild(steps);
+  root.appendChild(head);
+
+  const grid = el('div',{class:'wizard-grid'});
+  const formCard = el('div',{class:'panel-card'});
+  formCard.appendChild(renderStepForm(state.step));
+  grid.appendChild(formCard);
+  grid.appendChild(renderPreviewColumn());
+  root.appendChild(grid);
+
+  const actions = el('div',{class:'wizard-actions'});
+  const prevBtn = el('button',{class:'btn', onclick:()=>{ if(state.step>0){ state.step--; renderStudentWizard(); } }}, '← 이전');
+  prevBtn.disabled = state.step===0;
+  const nextLabel = state.step===STEPS.length-1 ? '제출하기' : '다음 →';
+  const nextBtn = el('button',{class:'btn btn-primary', onclick:()=> onNextClicked()}, nextLabel);
+  actions.appendChild(prevBtn); actions.appendChild(nextBtn);
+  root.appendChild(actions);
 }
 
-/* 2. Solar-system drag and drop */
-function initSolarDrag(){
- const planets=[
-   {name:"수성",cls:"planetMercury",icon:"☿",slot:0},
-   {name:"금성",cls:"planetVenus",icon:"🟠",slot:1},
-   {name:"지구",cls:"planetEarth",icon:"🌍",slot:2},
-   {name:"화성",cls:"planetMars",icon:"♂",slot:3},
-   {name:"목성",cls:"planetJupiter",icon:"♃",slot:4},
-   {name:"토성",cls:"planetSaturn",icon:"♄",slot:5},
-   {name:"천왕성",cls:"planetUranus",icon:"♅",slot:6},
-   {name:"해왕성",cls:"planetNeptune",icon:"♆",slot:7}
- ];
- window.solarPlanets=planets;window.solarDone=0;window.solarFinished=false;
- const stage=document.getElementById("miniStage");
- stage.innerHTML=`<div class="gamebox solarSpace" id="solarSpace">
-   <div class="solarHint">행성을 마우스로 끌어서 1~8번 위치에 태양과 가까운 순서대로 놓으세요.</div>
-   <div class="sunCore"></div>
-   <div class="solarDragResult" id="solarDragResult">1~8번 위치에 드래그하세요</div>
-   <div class="solarLine">${planets.map((p,i)=>`<div class="solarSlot" data-slot="${i}"><span>${i+1}</span></div>`).join("")}</div>
-   ${planets.map((p,i)=>{
-      const left=12+(i%4)*21+(Math.random()*5-2.5),top=30+Math.floor(i/4)*24+(Math.random()*7-3.5);
-      return `<div class="dragPlanet ${p.cls}" data-name="${p.name}" data-slot="${p.slot}" style="left:${left}%;top:${top}%">${p.icon}<span style="position:absolute;bottom:-17px;font-size:9px">${p.name}</span></div>`
-   }).join("")}
- </div>
- <div class="controls"><button class="btn" onclick="finishSolarEarly()">✅ 배치 완료 확인</button></div>`;
- const space=document.getElementById("solarSpace");
- space.querySelectorAll(".dragPlanet").forEach(attachSolarPointerDrag);
- window.solarTimeLimit=15;startMiniTimer(15,()=>solarTimeout());
+function canProceed(step){
+  if(step===0) return !!state.data.studentName.trim();
+  if(step===1) return !!state.data.conceptTitle.trim();
+  if(step===3) return (state.data.works||[]).some(w=>w.title.trim());
+  return true;
 }
-function attachSolarPointerDrag(el){
- el.addEventListener("pointerdown",e=>{
-   if(el.classList.contains("locked")||window.solarFinished)return;
-   e.preventDefault();el.setPointerCapture?.(e.pointerId);el.classList.add("dragging");
-   const space=document.getElementById("solarSpace"),rect=space.getBoundingClientRect();
-   const move=ev=>{
-     const x=Math.max(3,Math.min(97,((ev.clientX-rect.left)/rect.width)*100));
-     const y=Math.max(10,Math.min(86,((ev.clientY-rect.top)/rect.height)*100));
-     el.style.left=x+"%";el.style.top=y+"%";
-     highlightSolarSlot(ev.clientX,ev.clientY);
-   };
-   const up=ev=>{
-     el.releasePointerCapture?.(ev.pointerId);el.classList.remove("dragging");
-     const target=findSolarSlotAt(ev.clientX,ev.clientY);
-     space.querySelectorAll(".solarSlot").forEach(s=>s.classList.remove("over"));
-     if(target)placeSolar(el.dataset.name,target,el);else snapSolarBack(el);
-     el.removeEventListener("pointermove",move);el.removeEventListener("pointerup",up);el.removeEventListener("pointercancel",up);
-   };
-   el.addEventListener("pointermove",move);el.addEventListener("pointerup",up);el.addEventListener("pointercancel",up);
- });
-}
-function findSolarSlotAt(x,y){
- return [...document.querySelectorAll(".solarSlot")].find(slot=>{
-   const r=slot.getBoundingClientRect();return x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;
- })||null;
-}
-function highlightSolarSlot(x,y){
- [...document.querySelectorAll(".solarSlot")].forEach(slot=>{
-   const r=slot.getBoundingClientRect();slot.classList.toggle("over",x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom&&!slot.classList.contains("done"));
- });
-}
-function snapSolarBack(el){
- const p=window.solarPlanets.find(x=>x.name===el.dataset.name),i=p?.slot??0;
- el.style.left=(12+(i%4)*21)+"%";el.style.top=(30+Math.floor(i/4)*24)+"%";
-}
-function placeSolar(name,slot,planet){
- if(!name||slot.classList.contains("done")||window.solarFinished)return;
- const expected=Number(slot.dataset.slot),actual=Number(planet.dataset.slot);
- if(expected!==actual){toast(`❌ ${name}의 위치가 아닙니다.`,false);snapSolarBack(planet);return;}
- const space=document.getElementById("solarSpace"),r=space.getBoundingClientRect(),sr=slot.getBoundingClientRect();
- planet.style.left=((sr.left+sr.width/2-r.left)/r.width*100)+"%";planet.style.top=((sr.top+sr.height/2-r.top)/r.height*100)+"%";
- planet.classList.add("locked");slot.classList.add("done");
- document.getElementById("solarDragResult").textContent=`✅ ${name} 배치 완료`;
- window.solarDone++;state.score+=2;addSkill("compare",2);
- addMiniTime(2);
- const sr2=document.getElementById("solarDragResult");
- if(sr2&&window.solarDone<8)sr2.textContent=`✅ ${pText} 배치 완료 · 제한시간 +2초`;
- if(window.solarDone===8){
-   window.solarFinished=true;stopMiniTimer();document.getElementById("solarDragResult").textContent="🎉 8개 행성을 모두 배치했습니다!";
-   state.miniData.push(100);timers.push(setTimeout(finishStageMini,900));
- }
-}
-function finishSolarEarly(){
- if(window.solarFinished)return;
- if(window.solarDone===8){window.solarFinished=true;stopMiniTimer();state.miniData.push(100);finishStageMini()}
- else toast(`아직 ${8-window.solarDone}개 행성이 남았습니다.`,false);
-}
-function solarTimeout(){
- if(window.solarFinished)return;
- window.solarFinished=true;const acc=window.solarDone/8*100;state.miniData.push(acc);
- toast(`⏰ 시간 종료 · ${window.solarDone}/8 배치 완료`,false);addSkill("compare",Math.max(0,Math.floor(window.solarDone/3)));
- timers.push(setTimeout(finishStageMini,1000));
+function onNextClicked(){
+  if(!canProceed(state.step)){
+    const msgs = {0:'이름을 입력해주세요.', 1:'팸플릿 콘셉트 제목을 입력해주세요.', 3:'작품을 한 개 이상 입력해주세요.'};
+    toast(msgs[state.step] || '필수 항목을 입력해주세요.', 'error');
+    return;
+  }
+  if(state.step < STEPS.length-1){ state.step++; renderStudentWizard(); return; }
+  submitPamphlet();
 }
 
-/* 3. memory */
-const MEMORY_CARDS=[
- ["☀️","태양"],["☿️","수성"],["🟠","금성"],["🌍","지구"],["♂️","화성"],["♃","목성"],["♄","토성"],
- ["⛢","천왕성"],["♆","해왕성"],["🌙","달"],["🛰️","이오"],["🔭","유로파"],["🟢","가니메데"],["🔵","칼리스토"],["🌕","타이탄"]
-];
-function pickMemoryTargets(){
- const arr=[...MEMORY_CARDS].sort(()=>Math.random()-.5);
- return arr.slice(0,3)
-}
-function initMemory(){
- window.memoryFinished=false;
- const targets=pickMemoryTargets();window.memoryTargets=targets;window.memoryPicked=[];window.memoryCorrectCount=0;
- const stage=document.getElementById("miniStage");
- stage.innerHTML=`<div class="gamebox memoryScene" id="memoryScene">
-   <div class="countdown" id="countdown">4</div>
-   ${targets.map(c=>`<div class="memCard"><div class="memIcon">${c[0]}</div><div class="memName">${c[1]}</div></div>`).join("")}
- </div>`;
- let n=4;const cd=document.getElementById("countdown");
- function tick(){
-   if(!cd)return;
-   n-=1;
-   if(n>=1){cd.textContent=n;timers.push(setTimeout(tick,1000))}
-   else{cd.textContent="기억!";timers.push(setTimeout(showMemoryChoices,200))}
- }
- timers.push(setTimeout(tick,1000));
-}
-function showMemoryChoices(){
- const scene=document.getElementById("memoryScene");if(!scene)return;
- const choices=[...MEMORY_CARDS].sort(()=>Math.random()-.5);
- scene.innerHTML=`<div class="memorySelectWrap" id="memorySelect">
-   <div class="memoryInstruction">기억한 천체 3개를 순서와 상관없이 선택하세요. <b>선택 시간 8초</b></div>
-   ${choices.map(c=>`<button class="memChoice" onclick="pickMemory('${c[1]}',this)">
-      <span class="memIcon" style="font-size:31px">${c[0]}</span><span>${c[1]}</span>
-   </button>`).join("")}
- </div>`;
- startMiniTimer(8,()=>memoryTimeout());
-}
-function pickMemory(name,btn){
- if(btn.disabled || window.memoryPicked.length>=3)return;
- btn.disabled=true;window.memoryPicked.push(name);
- const correct=window.memoryTargets.some(c=>c[1]===name);
- const scene=document.getElementById("memoryScene");
- scene.insertAdjacentHTML("afterbegin",`<div class="feedbackBox ${correct?"good":"bad"} show">${correct?"✅ 정답!":"❌ 오답!"}</div>`);
- if(correct){btn.classList.add("correctPick");window.memoryCorrectCount++}
- else btn.classList.add("wrongPick");
- timers.push(setTimeout(()=>scene.querySelector(".feedbackBox")?.remove(),650));
- if(window.memoryPicked.length===3){
-   finishMemory();
- }
-}
-function finishMemory(){
- if(window.memoryFinished)return;
- window.memoryFinished=true;stopMiniTimer();
- const ok=window.memoryCorrectCount,acc=ok/3*100,gain=ok;
- document.querySelectorAll(".memChoice").forEach(b=>b.disabled=true);
- state.miniData.push(acc);state.score+=ok;addSkill("observe",gain);
- const scene=document.getElementById("memoryScene");
- scene.insertAdjacentHTML("afterbegin",`<div class="feedbackBox ${ok>=2?"good":"bad"} show">${ok}/3 정답! <b>관찰능력 +${gain}</b></div>`);
- timers.push(setTimeout(nextMini,1100));
-}
-function memoryTimeout(){
- if(window.memoryFinished)return;
- window.memoryFinished=true;stopMiniTimer();
- const ok=window.memoryCorrectCount,acc=ok/3*100,gain=ok;
- document.querySelectorAll(".memChoice").forEach(b=>b.disabled=true);
- state.miniData.push(acc);state.score+=ok;addSkill("observe",gain);
- const scene=document.getElementById("memoryScene");
- scene.insertAdjacentHTML("afterbegin",`<div class="feedbackBox ${ok>=2?"good":"bad"} show">⏰ 시간 종료 · ${ok}/3 정답 · <b>관찰능력 +${gain}</b></div>`);
- timers.push(setTimeout(nextMini,1100));
+function renderStepForm(step){
+  const wrap = el('div',{});
+  if(step===0){
+    wrap.appendChild(el('h2',{style:'font-size:19px;margin-bottom:14px;'}, '누가 만드나요?'));
+    wrap.appendChild(field('이름 *', textInput(state.data.studentName, v=>updateField('studentName', v)), '선생님이 알아볼 수 있도록 실명으로 적어주세요.'));
+    const row = el('div',{class:'row2'});
+    row.appendChild(field('모둠명(선택)', textInput(state.data.groupName, v=>updateField('groupName', v))));
+    row.appendChild(field('학년/반(선택)', textInput(state.data.className, v=>updateField('className', v))));
+    wrap.appendChild(row);
+  }
+  if(step===1){
+    wrap.appendChild(el('h2',{style:'font-size:19px;margin-bottom:14px;'}, '팸플릿 콘셉트 정하기'));
+    wrap.appendChild(field('콘셉트 제목 *', textInput(state.data.conceptTitle, v=>updateField('conceptTitle', v)), '예: 피렌체의 상징 · 원근법의 발전을 따라서 · 다빈치의 작품들'));
+    wrap.appendChild(field('한 줄 설명(선택)', textareaInput(state.data.conceptSubtitle, v=>updateField('conceptSubtitle', v), 2)));
+  }
+  if(step===2){
+    wrap.appendChild(el('h2',{style:'font-size:19px;margin-bottom:14px;'}, '표지 디자인'));
+    const picker = el('div',{class:'theme-picker'});
+    Object.entries(THEMES).forEach(([key, t])=>{
+      const sw = el('div',{class:'theme-swatch'+(state.data.theme===key?' selected':'')});
+      const chip = el('div',{class:'chip'}); chip.style.background=t.panel;
+      sw.appendChild(chip); sw.appendChild(document.createTextNode(t.label));
+      sw.addEventListener('click', ()=>{ updateField('theme', key); renderStudentWizard(); });
+      picker.appendChild(sw);
+    });
+    wrap.appendChild(field('색상 테마', picker));
+    wrap.appendChild(field('표지 문구(선택)', textareaInput(state.data.coverTagline, v=>updateField('coverTagline', v), 2), '비워두면 콘셉트 설명이 대신 표시돼요.'));
+  }
+  if(step===3){
+    wrap.appendChild(el('h2',{style:'font-size:19px;margin-bottom:6px;'}, '작품 소개'));
+    wrap.appendChild(el('p',{class:'field hint',style:'margin-bottom:14px;'}, '최대 4개까지 소개할 수 있어요. 작품 속 과학적 원리를 함께 적어보세요.'));
+    const list = el('div',{});
+    (state.data.works||[]).forEach((w,i)=> list.appendChild(renderWorkCard(w,i)));
+    wrap.appendChild(list);
+    if((state.data.works||[]).length<4){
+      wrap.appendChild(el('button',{class:'btn btn-sm', onclick:()=>{ state.data.works.push(blankWork()); persistDraft(); debouncedSync(); renderStudentWizard(); }}, '+ 작품 추가'));
+    }
+  }
+  if(step===4){
+    wrap.appendChild(el('h2',{style:'font-size:19px;margin-bottom:14px;'}, '탐구 소감'));
+    wrap.appendChild(field('과학기술과 예술 작품의 융합이 왜 중요한지, 이번 활동으로 알게 된 점을 자유롭게 적어보세요.', textareaInput(state.data.reflection, v=>updateField('reflection', v), 8)));
+  }
+  if(step===5){
+    wrap.appendChild(el('h2',{style:'font-size:19px;margin-bottom:10px;'}, '완성됐어요! 제출 전 확인해보세요'));
+    wrap.appendChild(el('p',{class:'field hint', style:'margin-bottom:16px;'}, '오른쪽 미리보기가 실제 인쇄될 팸플릿 모습이에요. 접었을 때 왼쪽부터 표지 · 작품 소개 · 소감 순서로 배치됩니다.'));
+    wrap.appendChild(el('div',{class:'preview-actions'},
+      el('button',{class:'btn', onclick:(e)=>downloadPdfFor(state.data, e.currentTarget)}, '📄 내 팸플릿 PDF 다운로드')
+    ));
+    if(!state.dbReady){
+      wrap.appendChild(el('div',{class:'fallback-box', style:'margin-top:16px;'},
+        el('b',{},'🔌 오프라인 모드 안내  '),
+        '지금 이 화면은 선생님 조직 계정과 실시간으로 연결되어 있지 않아요. "제출하기"를 누르면 ',
+        el('b',{},'제출파일(.json)'), '이 다운로드됩니다. 이 파일을 학급방·이메일 등으로 선생님께 보내주시면, 선생님이 갤러리 화면에서 불러와 확인할 수 있어요.'
+      ));
+    }
+  }
+  return wrap;
 }
 
-const PAIR_CARDS=[
-  {key:"망원경",kind:"text",content:"망원경"},
-  {key:"망원경",kind:"image",content:"🔭"},
-  {key:"태양",kind:"text",content:"태양"},
-  {key:"태양",kind:"image",content:"☀️"},
-  {key:"지구",kind:"text",content:"지구"},
-  {key:"지구",kind:"image",content:"🌍"},
-  {key:"프리즘",kind:"text",content:"프리즘"},
-  {key:"프리즘",kind:"image",content:"🔺"}
-];
-
-function initPairs(){
- clearPairState();
- const cards=[...PAIR_CARDS].sort(()=>Math.random()-.5);
- window.pairState={
-   first:null,second:null,locked:false,
-   matched:new Set(),matches:0,startedAt:performance.now(),
-   totalTime:30,finished:false
- };
- const stage=document.getElementById("miniStage");
- stage.innerHTML=`<div class="gamebox pairArea" id="pairBox">
-   <div class="pairInstruction">같은 과학 개념의 <b>글자 카드 + 그림 카드</b>를 찾아 짝지으세요.</div>
-   <div class="pairGrid">
-     ${cards.map((c,i)=>`
-       <button class="pairCard" id="pair-${i}" data-key="${c.key}" onclick="flipPair(${i})">
-         <span class="pairBack">?</span>
-         <span class="pairFront">${c.kind==="text"
-           ? `<strong class="pairText">${c.content}</strong>`
-           : `<strong class="pairPicture">${c.content}</strong><small>그림</small>`}</span>
-       </button>`).join("")}
-   </div>
-   <div class="pairResult" id="pairResult">4쌍 · 30초</div>
- </div>`;
- startMiniTimer(30,()=>pairTimeout());
+function renderWorkCard(w,i){
+  const card = el('div',{class:'work-card'});
+  card.appendChild(el('span',{class:'work-num'}, '작품 '+(i+1)));
+  if((state.data.works||[]).length>1){
+    card.appendChild(el('button',{class:'icon-btn work-remove', title:'삭제', onclick:()=>{ state.data.works.splice(i,1); persistDraft(); debouncedSync(); renderStudentWizard(); }}, '✕'));
+  }
+  card.appendChild(field('작품명', textInput(w.title, v=>{ w.title=v; persistDraft(); debouncedSync(); refreshPreviewOnly(); })));
+  const row = el('div',{class:'row2'});
+  row.appendChild(field('작가 / 시대(선택)', textInput(w.artist, v=>{ w.artist=v; persistDraft(); debouncedSync(); refreshPreviewOnly(); })));
+  card.appendChild(row);
+  card.appendChild(field('작품 소개', textareaInput(w.desc, v=>{ w.desc=v; persistDraft(); debouncedSync(); refreshPreviewOnly(); }, 3)));
+  const principleField = field('작품 속 과학적 원리', textInput(w.principle, v=>{ w.principle=v; persistDraft(); debouncedSync(); refreshPreviewOnly(); }));
+  const tags = el('div',{class:'principle-tags'});
+  PRINCIPLE_HINTS.forEach(p=>{
+    tags.appendChild(el('button',{class:'tag-btn', type:'button', onclick:()=>{ w.principle=p; persistDraft(); debouncedSync(); renderStudentWizard(); }}, p));
+  });
+  principleField.appendChild(tags);
+  card.appendChild(principleField);
+  return card;
 }
 
-function clearPairState(){
- window.pairState=null;
+function field(label, control, hint){
+  const wrap = el('div',{class:'field'});
+  wrap.appendChild(el('label',{}, label));
+  wrap.appendChild(control);
+  if(hint) wrap.appendChild(el('div',{class:'hint'}, hint));
+  return wrap;
+}
+function textInput(value, onChange){
+  const inp = el('input',{type:'text', value: value||''});
+  inp.value = value||'';
+  inp.addEventListener('input', e=>{ onChange(e.target.value); });
+  return inp;
+}
+function textareaInput(value, onChange, rows){
+  const t = el('textarea',{rows: rows||3});
+  t.value = value||'';
+  t.addEventListener('input', e=>{ onChange(e.target.value); });
+  return t;
 }
 
-function flipPair(index){
- const ps=window.pairState;
- if(!ps || ps.finished || ps.locked)return;
- const card=document.getElementById(`pair-${index}`);
- if(!card || ps.matched.has(index) || card.classList.contains("flipped"))return;
-
- card.classList.add("flipped");
- if(ps.first===null){
-   ps.first=index;
-   return;
- }
- ps.second=index;
- ps.locked=true;
-
- const first=document.getElementById(`pair-${ps.first}`);
- const second=document.getElementById(`pair-${ps.second}`);
- const same=first.dataset.key===second.dataset.key;
- const result=document.getElementById("pairResult");
-
- if(same){
-   first.classList.add("matched");
-   second.classList.add("matched");
-   ps.matched.add(ps.first);
-   ps.matched.add(ps.second);
-   ps.matches++;
-   ps.first=null;ps.second=null;ps.locked=false;
-   addSkill("compare",1,false);
-   result.innerHTML=`✅ 정답! ${ps.matches}/4쌍 · 비교능력 <b>+1</b>`;
-   renderSide();
-
-   if(ps.matches===4){
-     ps.finished=true;
-     stopMiniTimer();
-     const elapsed=(performance.now()-ps.startedAt)/1000;
-     const remain=Math.max(0,30-elapsed);
-     const bonus=Math.min(3,Math.max(0,Math.floor(remain/8)));
-     if(bonus>0)addSkill("compare",bonus,false);
-     renderSide();
-     state.score+=4+bonus;
-     result.innerHTML=`🎉 4쌍 완성! <b>${elapsed.toFixed(1)}초</b> · 빠른 시간 보너스 <b>+${bonus}</b>`;
-     state.miniData.push(100);
-     timers.push(setTimeout(nextMini,1200));
-   }
- }else{
-   result.innerHTML=`❌ 오답입니다. 다시 확인해 보세요.`;
-   timers.push(setTimeout(()=>{
-     first.classList.remove("flipped");
-     second.classList.remove("flipped");
-     ps.first=null;ps.second=null;ps.locked=false;
-     result.innerHTML=`남은 카드에서 같은 짝을 찾아보세요.`;
-   },650));
- }
+let previewResizeObs=null;
+function renderPreviewColumn(){
+  const col = el('div',{class:'preview-col'});
+  const sticky = el('div',{class:'preview-sticky'});
+  const frameWrap = el('div',{class:'preview-frame-wrap'});
+  const frame = el('div',{class:'preview-frame', id:'live-preview-frame'});
+  frameWrap.appendChild(frame);
+  sticky.appendChild(frameWrap);
+  sticky.appendChild(el('div',{class:'preview-caption'}, '실시간 미리보기 — 접으면 트리폴드 팸플릿이 됩니다'));
+  col.appendChild(sticky);
+  setTimeout(()=>{
+    const sheet = buildPrintSheet(state.data);
+    frame.appendChild(sheet);
+    fitPreview(frame, sheet);
+    if(previewResizeObs) previewResizeObs.disconnect();
+    previewResizeObs = new ResizeObserver(()=>fitPreview(frame, sheet));
+    previewResizeObs.observe(frame);
+  },0);
+  return col;
+}
+function refreshPreviewOnly(){
+  const frame = $('#live-preview-frame');
+  if(!frame) return;
+  frame.innerHTML='';
+  const sheet = buildPrintSheet(state.data);
+  frame.appendChild(sheet);
+  fitPreview(frame, sheet);
 }
 
-function pairTimeout(){
- const ps=window.pairState;
- if(!ps || ps.finished)return;
- ps.finished=true;ps.locked=true;
- const result=document.getElementById("pairResult");
- result.innerHTML=`⏰ 시간 종료! ${ps.matches}/4쌍 완성`;
- document.querySelectorAll(".pairCard").forEach(b=>b.disabled=true);
- state.miniData=[ps.matches/4*100];
- timers.push(setTimeout(nextMini,1000));
+async function submitPamphlet(){
+  state.data.status='submitted';
+  state.data.submittedAt = Date.now();
+  persistDraft();
+  if(state.dbReady){
+    await syncStudentToDb();
+    renderSuccessScreen();
+  } else {
+    const payload = Object.assign({}, state.data);
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+    const fname = sanitizeFilename((payload.groupName?payload.groupName+'_':'')+(payload.studentName||'제출')+'_제출파일')+'.json';
+    await saveFile(fname, blob);
+    renderSuccessScreen(true);
+  }
 }
 
-const DOBBLE_ICONS=[
- "🔺","☀️","🌙","🌍","🪐","🔭","✏️","🍎","⚛️","🧭","🌡️","🧲",
- "🔬","🧪","🚀","💡","📐","📡","🛰️","🧫","⚗️","🔋","💧","🧠",
- "📏","⚙️","📚","🧬","🌡️"
-];
-function initDobble(){
- const common=DOBBLE_ICONS[Math.floor(Math.random()*DOBBLE_ICONS.length)];
- const pool=DOBBLE_ICONS.filter(x=>x!==common);
- const shuffled=pool.sort(()=>Math.random()-.5).slice(0,20);
- const cards=[];
- for(let i=0;i<4;i++){
-   const unique=shuffled.slice(i*5,(i+1)*5);
-   cards.push([common,...unique].sort(()=>Math.random()-.5));
- }
- window.dobbleCommon=common;window.dobbleFound=false;
- const stage=document.getElementById("miniStage");
- stage.innerHTML=`<div class="gamebox dobbleArea" id="dobbleBox">
-   <div class="dobbleHelp">네 원형 카드에 <b>모두 들어 있는 단 하나의 공통 아이콘</b>을 찾아 클릭하세요. 각 원판에는 정확히 <b>6개</b>가 있습니다.</div>
-   ${cards.map(arr=>`<div class="dobbleCard">${arr.map(icon=>`<span class="dobbleIcon" onclick="pickDobble(this,'${icon}')">${icon}</span>`).join("")}</div>`).join("")}
- </div>`;
- startMiniTimer(15,()=>dobbleTimeout());
-}
-function pickDobble(el,icon){
- if(window.dobbleFound)return;
- window.dobbleFound=true;stopMiniTimer();
- const box=document.getElementById("dobbleBox");
- const correct=icon===window.dobbleCommon;
- el.classList.add(correct?"correctPick2":"wrongPick2");
- if(correct){
-   box.insertAdjacentHTML("beforeend",`<div class="feedbackBox good show">✅ 정답! <b>논리추론능력 +3</b></div>`);
-   addSkill("logic",3);state.score+=3;state.miniData.push(100);
- }else{
-   box.insertAdjacentHTML("beforeend",`<div class="feedbackBox bad show">❌ 오답! <b>논리추론능력 -1</b></div>`);
-   addSkill("logic",-1);state.miniData.push(0);
- }
- timers.push(setTimeout(nextMini,900))
-}
-function dobbleTimeout(){
- if(window.dobbleFound)return;
- window.dobbleFound=true;stopMiniTimer();
- const box=document.getElementById("dobbleBox");
- box.insertAdjacentHTML("beforeend",`<div class="feedbackBox bad show">⏰ 시간 종료! · <b>논리추론능력 -1</b></div>`);
- addSkill("logic",-1);state.miniData.push(0);timers.push(setTimeout(nextMini,900))
+function renderSuccessScreen(fileMode){
+  $('#student-wizard').classList.add('hidden');
+  const root = $('#student-success');
+  root.classList.remove('hidden');
+  root.innerHTML='';
+  const box = el('div',{class:'panel-card success-box'});
+  box.appendChild(el('div',{class:'ic'}, fileMode ? '📤' : '🎉'));
+  box.appendChild(el('h2',{style:'font-size:22px; margin-bottom:8px;'}, fileMode ? '제출파일이 저장되었어요' : '팸플릿이 제출되었어요!'));
+  box.appendChild(el('p',{style:'color:var(--text-soft); font-size:14px; max-width:46ch; margin:0 auto 18px;'},
+    fileMode
+      ? '다운로드된 .json 파일을 학급 채팅방이나 이메일로 선생님께 보내주세요. 선생님이 갤러리 화면에서 이 파일을 불러오면 팸플릿이 표시됩니다.'
+      : ('제출 시각 '+fmtTime(state.data.submittedAt)+'. 선생님 화면에 실시간으로 표시됩니다.')
+  ));
+  const actions = el('div',{class:'preview-actions', style:'justify-content:center;'});
+  actions.appendChild(el('button',{class:'btn btn-primary', onclick:(e)=>downloadPdfFor(state.data, e.currentTarget)}, '📄 PDF로 다운로드'));
+  actions.appendChild(el('button',{class:'btn', onclick:()=>{ state.data.status='draft'; persistDraft(); root.classList.add('hidden'); $('#student-wizard').classList.remove('hidden'); state.step=STEPS.length-1; renderStudentWizard(); }}, '✏️ 내용 다시 수정하기'));
+  box.appendChild(actions);
+  root.appendChild(box);
 }
 
-function nextMini(){
- if(MINI[state.stage].type==="solarDrag"){
-   finishStageMini();return;
- }
- const maxRounds=MINI[state.stage].type==="pairs"?3:5;
- if(state.miniRound<maxRounds){state.miniRound++;state.miniData=[];render()}
- else finishStageMini()
+/* ============================== 선생님 갤러리 ============================== */
+function loadImported(){
+  try{ state.importedDocs = JSON.parse(localStorage.getItem(LS.imported))||[]; }catch(e){ state.importedDocs=[]; }
 }
-function finishStageMini(){
- const avg=state.miniData.reduce((a,b)=>a+b,0)/state.miniData.length;
- state.miniAverage=avg;
- addSkill(MINI[state.stage].skill,avg>=70?2:1);
- state.score+=Math.round(avg/20);
- if(state.stage<STAGES.length-1){
-   state.screen="stageComplete";render()
- }else{
-   state.screen="result";render()
- }
+function persistImported(){
+  try{ localStorage.setItem(LS.imported, JSON.stringify(state.importedDocs)); }catch(e){}
 }
 
-function bestType(){
- const entries=Object.entries(state.skills).sort((a,b)=>b[1]-a[1]);
- const key=entries[0][0];
- return {
-   observe:["관찰을 따라가는 과학자","현상을 직접 보고 세밀하게 기록하는 힘이 두드러졌습니다."],
-   verify:["검증을 중시하는 과학자","한 번의 결과보다 반복 확인과 반론 검토를 중요하게 여겼습니다."],
-   evidence:["증거를 모으는 과학자","새로운 자료와 관측 결과를 판단의 핵심 근거로 삼았습니다."],
-   compare:["연결하고 비교하는 과학자","서로 다른 설명과 연구 결과를 비교하고 연결했습니다."],
-   logic:["논리로 모델을 세우는 과학자","관측을 설명하는 모델과 논리적 관계를 찾는 데 강점을 보였습니다."],
-   authority:["독립적으로 판단하는 과학자","권위와 증거를 구분하면서 자신의 판단을 만들어 갔습니다."]
- }[key]
-}
-function fireworks(){
- return `<div class="fireworks">${Array.from({length:55},(_,i)=>{
-  const x=(Math.random()*700-350).toFixed(0)+"px",y=(Math.random()*170+35).toFixed(0)+"px";
-  const left=(50+Math.random()*16-8).toFixed(1)+"%";return `<i class="particle" style="left:${left};top:20px;--x:${x};--y:${y};animation-delay:${(Math.random()*.5).toFixed(2)}s"></i>`
- }).join("")}</div>`
-}
-function renderResult(){
- const lv=overallLevel(),ev=evolution(lv),[type,desc]=bestType();
- const sorted=Object.entries(state.skills).sort((a,b)=>b[1]-a[1]);
- document.getElementById("app").innerHTML=`<section class="result">
-   ${fireworks()}
-   <div class="eyebrow">FINAL SCIENTIST PROFILE</div>
-   <h2 class="title">🎉 축하합니다!</h2>
-   <div class="bigLevel">SCIENCE Lv.${lv}</div>
-   <div style="font-size:80px;line-height:1">${ev.body} ${ev.gear}</div>
-   <div class="type">「${type}」</div>
-   <p>${desc}<br>5명의 과학자와 함께 탐구하면서 당신만의 과학자 능력치를 키웠습니다.</p>
-   <div class="resultGrid">${sorted.map(([k,xp])=>`<div class="resultCard"><small>${SKILLS[k].name}</small><b>Lv.${levelFromXP(xp)} · ${xp} XP</b></div>`).join("")}</div>
-   <div class="quote"><b>수업 질문</b><br>과학자는 자신의 신념을 언제 유지하고, 언제 수정해야 할까?<br>
-   <span style="color:#9caec8">게임에서의 선택과 실제 과학자의 행동을 비교해 봅시다.</span></div>
-   <div style="margin-top:20px;color:#9caec8">총점 ${state.score} · 과학사 문제 정답 ${state.correctTotal} / 25</div>
-   <div style="margin-top:25px"><button class="btn" onclick="startGame()">다시 플레이하기</button></div>
- </section>`;
+function initTeacherView(){
+  loadImported();
+  $('#dropzone-note').textContent = state.dbReady ? '' : '(실시간 연결이 안 될 때 유용해요)';
+  const link = location.href;
+  $('#empty-link').textContent = link;
+
+  if(!$('#import-btn').dataset.bound){
+    $('#import-btn').dataset.bound='1';
+    $('#import-btn').addEventListener('click', ()=>$('#import-input').click());
+    $('#import-input').addEventListener('change', handleImportFiles);
+    $('#copy-link-btn').addEventListener('click', copyLink);
+    $('#copy-link-btn-2').addEventListener('click', copyLink);
+    $('#search-input').addEventListener('input', e=>{ state.search=e.target.value.trim().toLowerCase(); renderGallery(); });
+    $('#zip-selected-btn').addEventListener('click', ()=>bulkZip(true));
+    $('#zip-all-btn').addEventListener('click', ()=>bulkZip(false));
+  }
+
+  if(state.dbReady && !state.unsub){
+    try{
+      const q = state.db.collection('submissions').where('status','==','submitted').orderBy('submittedAt','desc').limit(300);
+      state.unsub = q.onSnapshot(
+        snap=>{ state.liveDocs = snap.docs.map(d=>Object.assign({id:d.id, source:'live'}, d.data())); renderGallery(); },
+        err=>{ toast('실시간 목록을 불러오지 못했습니다.', 'error'); }
+      );
+    }catch(e){ /* db 미가용 */ }
+  }
+  renderGallery();
 }
 
-function startTopTimer(seconds,onEnd){
- stopTopTimer();
- const start=performance.now(),bar=document.getElementById("timerBar"),txt=document.getElementById("timerText");
- if(!bar||!txt)return;
- function tick(){
-   const elapsed=(performance.now()-start)/1000,remain=Math.max(0,seconds-elapsed),pct=Math.max(0,remain/seconds*100);
-   bar.style.width=pct+"%";txt.textContent=remain.toFixed(1)+"초";
-   if(remain<=1)txt.classList.add("timerDanger");else txt.classList.remove("timerDanger");
-   if(remain<=0){stopTopTimer();onEnd()}
-   else window.topTimerRAF=requestAnimationFrame(tick);
- }
- window.topTimerRAF=requestAnimationFrame(tick)
-}
-function stopTopTimer(){
- if(window.topTimerRAF)cancelAnimationFrame(window.topTimerRAF);
- window.topTimerRAF=null;
-}
-function startMiniTimer(seconds,onEnd){
- stopMiniTimer();
- window.miniTimerTotal=seconds;
- window.miniTimerDeadline=performance.now()+seconds*1000;
- window.miniTimerEndCallback=onEnd;
- const miniStage=document.getElementById("miniStage");
- if(!miniStage)return;
- const header=document.querySelector(".miniTop");
- const timer=document.createElement("div");
- timer.className="questionTimer";
- timer.innerHTML=`<div class="questionTimerHead"><span>⏱ 제한 시간</span><span id="miniTimerText">${seconds.toFixed(1)}초</span></div><div class="timerTrack"><i id="miniTimerBar"></i></div>`;
- header?.after(timer);
- function tick(){
-   const remain=Math.max(0,(window.miniTimerDeadline-performance.now())/1000);
-   const total=window.miniTimerTotal||seconds;
-   const pct=Math.max(0,Math.min(100,(remain/total)*100));
-   const bar=document.getElementById("miniTimerBar"),txt=document.getElementById("miniTimerText");
-   if(!bar||!txt)return;
-   bar.style.width=pct+"%";txt.textContent=remain.toFixed(1)+"초";
-   if(remain<=1)txt.classList.add("timerDanger");else txt.classList.remove("timerDanger");
-   if(remain<=0){stopMiniTimer();window.miniTimerEndCallback?.()}
-   else window.miniTimerRAF=requestAnimationFrame(tick);
- }
- window.miniTimerRAF=requestAnimationFrame(tick)
-}
-function addMiniTime(seconds){
- if(!window.miniTimerDeadline)return;
- window.miniTimerDeadline+=seconds*1000;
- const remaining=Math.max(0,(window.miniTimerDeadline-performance.now())/1000);
- const txt=document.getElementById("miniTimerText");
- if(txt)txt.textContent=remaining.toFixed(1)+"초";
-}
-function stopMiniTimer(){
- if(window.miniTimerRAF)cancelAnimationFrame(window.miniTimerRAF);
- window.miniTimerRAF=null;
- window.miniTimerDeadline=null;
- window.miniTimerEndCallback=null;
+async function handleImportFiles(e){
+  const files = Array.from(e.target.files||[]);
+  for(const file of files){
+    try{
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      if(!parsed || typeof parsed!=='object' || !('studentName' in parsed)) throw new Error('bad');
+      const item = Object.assign({}, parsed, {id:'import_'+uid(), source:'import'});
+      state.importedDocs.push(item);
+      toast((parsed.studentName||'제출')+' 님의 팸플릿을 불러왔습니다.', 'ok');
+    }catch(err){
+      toast(file.name+' 파일을 읽을 수 없어요. 올바른 제출파일(.json)인지 확인해주세요.', 'error');
+    }
+  }
+  persistImported();
+  renderGallery();
+  e.target.value='';
 }
 
-function toggleSound(){state.sound=!state.sound;document.getElementById("soundBtn").textContent=state.sound?"🔊":"🔇"}
+function copyLink(){
+  navigator.clipboard && navigator.clipboard.writeText(location.href).then(
+    ()=>toast('링크를 복사했어요. 학생들에게 공유해보세요.', 'ok'),
+    ()=>toast('복사에 실패했어요. 주소창의 링크를 직접 복사해주세요.', 'error')
+  );
+}
 
-render();
+function mergedSubmissions(){
+  const map = new Map();
+  state.liveDocs.forEach(d=>map.set('live_'+d.id, d));
+  state.importedDocs.forEach(d=>map.set(d.id, d));
+  return Array.from(map.values()).sort((a,b)=> (b.submittedAt||0)-(a.submittedAt||0));
+}
+
+function renderGallery(){
+  const all = mergedSubmissions();
+  const filtered = all.filter(d=>{
+    if(!state.search) return true;
+    return (d.studentName||'').toLowerCase().includes(state.search) || (d.groupName||'').toLowerCase().includes(state.search) || (d.conceptTitle||'').toLowerCase().includes(state.search);
+  });
+  $('#stat-total').textContent = all.length;
+  $('#stat-live').textContent = state.liveDocs.length;
+  $('#stat-import').textContent = state.importedDocs.length;
+
+  const grid = $('#gallery-grid');
+  grid.innerHTML='';
+  $('#gallery-empty').classList.toggle('hidden', all.length>0);
+  grid.classList.toggle('hidden', all.length===0);
+
+  filtered.forEach(d=> grid.appendChild(renderGalleryCard(d)));
+}
+
+function renderGalleryCard(d){
+  const theme = THEMES[d.theme] || THEMES.lapis;
+  const card = el('div',{class:'gcard'});
+  card.appendChild(el('span',{class:'badge '+(d.source==='live'?'live':'import')}, d.source==='live' ? '🟢 실시간' : '📥 가져옴'));
+  const swatch = el('div',{class:'swatch'}); swatch.style.background = theme.panel;
+  card.appendChild(swatch);
+  card.appendChild(el('h3',{}, d.conceptTitle || '(제목 없음)'));
+  card.appendChild(el('div',{class:'who'}, [d.studentName, d.groupName].filter(Boolean).join(' · ') + (d.submittedAt ? (' · '+fmtTime(d.submittedAt)) : '')));
+  const chips = el('div',{class:'chips'});
+  chips.appendChild(el('span',{}, '작품 '+((d.works||[]).filter(w=>w.title).length)+'개'));
+  const principles = Array.from(new Set((d.works||[]).map(w=>w.principle).filter(Boolean)));
+  principles.slice(0,2).forEach(p=>chips.appendChild(el('span',{}, p)));
+  card.appendChild(chips);
+  const actions = el('div',{class:'gc-actions'});
+  actions.appendChild(el('button',{class:'btn btn-sm', onclick:()=>openPreviewModal(d)}, '미리보기'));
+  actions.appendChild(el('button',{class:'btn btn-sm', onclick:(e)=>downloadPdfFor(d, e.currentTarget)}, 'PDF'));
+  const pick = el('label',{class:'pick'});
+  const cb = el('input',{type:'checkbox'});
+  cb.checked = state.selected.has(cardKey(d));
+  cb.addEventListener('change', ()=>{ const k=cardKey(d); if(cb.checked) state.selected.add(k); else state.selected.delete(k); });
+  pick.appendChild(cb); pick.appendChild(document.createTextNode('선택'));
+  actions.appendChild(pick);
+  card.appendChild(actions);
+  return card;
+}
+function cardKey(d){ return (d.source||'')+'_'+(d.id||d.studentName); }
+
+function openPreviewModal(d){
+  const root = $('#modal-root');
+  const backdrop = el('div',{class:'modal-backdrop', onclick:(e)=>{ if(e.target===backdrop) backdrop.remove(); }});
+  const box = el('div',{class:'modal-box'});
+  const head = el('div',{class:'modal-head'});
+  head.appendChild(el('h3',{}, (d.conceptTitle||'팸플릿')+' — '+[d.studentName,d.groupName].filter(Boolean).join(' · ')));
+  head.appendChild(el('button',{class:'icon-btn', onclick:()=>backdrop.remove()}, '✕'));
+  box.appendChild(head);
+  const frameWrap = el('div',{class:'preview-frame-wrap'});
+  const frame = el('div',{class:'preview-frame', style:'min-height:220px;'});
+  frameWrap.appendChild(frame);
+  box.appendChild(frameWrap);
+  const actions = el('div',{class:'preview-actions'});
+  actions.appendChild(el('button',{class:'btn btn-primary', onclick:(e)=>downloadPdfFor(d, e.currentTarget)}, '📄 PDF 다운로드'));
+  box.appendChild(actions);
+  backdrop.appendChild(box);
+  root.appendChild(backdrop);
+  setTimeout(()=>{
+    const sheet = buildPrintSheet(d);
+    frame.appendChild(sheet);
+    fitPreview(frame, sheet);
+    const ro = new ResizeObserver(()=>fitPreview(frame, sheet));
+    ro.observe(frame);
+  },0);
+}
+
+async function bulkZip(onlySelected){
+  const all = mergedSubmissions();
+  const targets = onlySelected ? all.filter(d=>state.selected.has(cardKey(d))) : all;
+  if(targets.length===0){ toast(onlySelected? '선택된 항목이 없어요.' : '다운로드할 제출물이 없어요.', 'error'); return; }
+  toast(targets.length+'개 팸플릿을 PDF로 묶는 중입니다…');
+  const zip = new JSZip();
+  const usedNames = new Set();
+  for(let i=0;i<targets.length;i++){
+    const d = targets[i];
+    try{
+      const blob = await dataToPdfBlob(d);
+      let name = sanitizeFilename((d.groupName?d.groupName+'_':'')+(d.studentName||('제출_'+(i+1))))+'.pdf';
+      let finalName = name, n=2;
+      while(usedNames.has(finalName)){ finalName = name.replace(/\.pdf$/,'')+'_'+n+'.pdf'; n++; }
+      usedNames.add(finalName);
+      zip.file(finalName, blob);
+    }catch(e){ /* 개별 실패는 건너뜀 */ }
+  }
+  const zipBlob = await zip.generateAsync({type:'blob'});
+  await saveFile('르네상스_팸플릿_모음_'+(new Date().toISOString().slice(0,10))+'.zip', zipBlob);
+  toast('ZIP 다운로드가 준비됐어요.', 'ok');
+}
+
+/* ============================== 시작 ============================== */
+(async function main(){
+  await initCapabilities();
+  render();
+})();
+
+})();
 </script>
 </body>
 </html>
